@@ -1,9 +1,12 @@
+// DOM elements
+const modal = document.getElementById("contact_modal");
+
+// Open modal
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+  modal.style.display = "block";
 }
 
+// Close modal
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+  modal.style.display = "none";
 }
