@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+	  <meta name="viewport"
+	        content="width=device-width, initial-scale=1">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="logo">
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -20,12 +23,12 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="close modal" onclick="closeModal()">
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="first-name">Prénom</label>
+						<input type="text" id="first-name">
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
