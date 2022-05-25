@@ -1,0 +1,6 @@
+@mixin flex-col-centre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

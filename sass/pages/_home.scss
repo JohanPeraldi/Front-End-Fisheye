@@ -6,16 +6,10 @@
 
   & article {
     justify-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex-col-centre;
 
     & a {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      @include flex-col-centre;
       text-decoration: none;
     }
 
