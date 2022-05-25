@@ -4,9 +4,18 @@
 /*******
  BORDERS
  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
-  margin: 0;
 }
 
 h1 {
@@ -35,7 +44,7 @@ form {
 }
 form label {
   color: #312e2e;
-  font-size: 36px;
+  font-size: 3.6rem;
 }
 form div {
   display: flex;
@@ -74,7 +83,7 @@ form input {
   cursor: pointer;
 }
 .modal header h2 {
-  font-size: 64px;
+  font-size: 6.4rem;
   font-weight: normal;
   text-align: center;
 }
@@ -107,11 +116,25 @@ header {
 }
 .photographer_section article h2 {
   color: #d3573c;
-  font-size: 36px;
+  font-size: 3.6rem;
+  margin-top: 1.6rem;
 }
 .photographer_section article img {
   height: 200px;
   width: 200px;
+  border-radius: 50%;
+}
+.photographer_section article .location {
+  color: #901c1c;
+  font-size: 1.3rem;
+}
+.photographer_section article .slogan {
+  font-size: 1rem;
+}
+.photographer_section article .rate {
+  color: #757575;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
 }
 
 .photograph-header {

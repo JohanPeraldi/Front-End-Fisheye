@@ -13,12 +13,29 @@
 
     & h2 {
       color: $color-secondary;
-      font-size: 36px;
+      font-size: 3.6rem;
+      margin-top: 1.6rem;
     }
 
     & img {
       height: 200px;
       width: 200px;
+      border-radius: 50%;
+    }
+
+    & .location {
+      color: $color-primary;
+      font-size: 1.3rem;
+    }
+
+    & .slogan {
+      font-size: 1rem;
+    }
+
+    & .rate {
+      color: $color-grey-medium-light;
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
     }
   }
 }
