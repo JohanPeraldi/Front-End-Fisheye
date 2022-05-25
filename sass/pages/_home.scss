@@ -7,9 +7,17 @@
   & article {
     justify-self: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+
+    & a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
 
     & h2 {
       color: $color-secondary;

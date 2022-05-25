@@ -110,9 +110,16 @@ header {
 .photographer_section article {
   justify-self: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.photographer_section article a {
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 .photographer_section article h2 {
   color: #d3573c;
