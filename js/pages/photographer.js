@@ -37,17 +37,9 @@ async function getPhotographer() {
       console.log('Photographer: ' + photographer);
       console.groupEnd();
       photographerName = photographer.name;
-      // return photographer;
+      return photographer;
     }
   });
 }
 
 const photographer = getPhotographer();
-//
-// async function init() {
-//   // Get photographer data
-//   const {photographer} = await getPhotographer();
-//   // displayData(photographer);
-// }
-//
-// init();
