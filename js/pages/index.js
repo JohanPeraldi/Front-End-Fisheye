@@ -1,8 +1,6 @@
 async function getPhotographers() {
-  // Refactor -> transfer to Api.js
-  const data = '../data/photographers.json';
-  const response = await fetch(data);
-  return await response.json();
+  const photographers = new PhotographersApi('../data/photographers.json');
+  return photographers.get();
 }
 
 async function displayData(photographers) {
