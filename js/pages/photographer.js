@@ -9,7 +9,6 @@ closeModalIcon.addEventListener('click', () => closeModal());
 
 // Update page title
 let photographerName = 'Update me';
-pageTitleElement.textContent = 'Fisheye - ' + photographerName;
 
 let params = (new URL(document.location)).searchParams;
 let id = params.get('id');
@@ -17,14 +16,9 @@ console.log('Photographer id: ' + id);
 
 // Get photographer data
 async function getPhotographer() {
-  const data = '../data/photographers.json';
-  const response = await fetch(data);
-  const result = await response.json();
-  const photographers = result.photographers;
-  console.log(photographers); // This is an array of photographers
-  // We therefore need to loop through the array to get the data from the
-  // selected photographer (using his id)
-  photographers.forEach(photographer => {
+  const data = new PhotographersApi('../data/photographers.json');
+  const response = await data.get();
+  response.photographers.forEach(photographer => {
     if (photographer.id === +id) {
       console.group('Photographer data');
       console.log('Name: ' + photographer.name);
@@ -37,9 +31,11 @@ async function getPhotographer() {
       console.log('Photographer: ' + photographer);
       console.groupEnd();
       photographerName = photographer.name;
+      pageTitleElement.textContent = 'Fisheye - ' + photographerName;
       return photographer;
     }
   });
 }
 
-const photographer = getPhotographer();
+getPhotographer();
+// photographerName = photographer.name;
