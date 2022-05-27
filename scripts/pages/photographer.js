@@ -8,7 +8,7 @@ contactButton.addEventListener('click', () => displayModal());
 closeModalIcon.addEventListener('click', () => closeModal());
 
 // Update page title
-const photographerName = 'Update me';
+let photographerName = 'Update me';
 pageTitleElement.textContent = 'Fisheye - ' + photographerName;
 
 let params = (new URL(document.location)).searchParams;
@@ -34,16 +34,20 @@ async function getPhotographer() {
       console.log('Tagline: ' + photographer.tagline);
       console.log('Rate: ' + photographer.price + '€/day');
       console.log('Image file: ' + photographer.portrait);
+      console.log('Photographer: ' + photographer);
       console.groupEnd();
-      return photographer;
+      photographerName = photographer.name;
+      // return photographer;
     }
   });
 }
 
-async function init() {
-  // Get photographer data
-  const {photographer} = await getPhotographer();
-  displayData(photographer);
-}
-
-init();
+const photographer = getPhotographer();
+//
+// async function init() {
+//   // Get photographer data
+//   const {photographer} = await getPhotographer();
+//   // displayData(photographer);
+// }
+//
+// init();
