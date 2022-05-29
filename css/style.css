@@ -131,23 +131,42 @@ header {
   width: 200px;
   border-radius: 50%;
 }
-.photographer_section article .location {
+.photographer_section article .photographer__location {
   color: #901c1c;
   font-size: 1.3rem;
 }
-.photographer_section article .slogan {
+.photographer_section article .photographer__slogan {
   font-size: 1.2rem;
 }
-.photographer_section article .rate {
+.photographer_section article .photographer__rate {
   color: #757575;
   font-size: 1.2rem;
   margin-top: 0.4rem;
 }
 
-.photograph-header {
+.photographer__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
+  padding: 0 5rem;
+}
+.photographer__header h1 {
+  font-size: 6.4rem;
+  color: #d3573c;
+}
+.photographer__location {
+  margin: 1rem 0 1.8rem;
+  font-size: 2.4rem;
+  color: #901c1c;
+}
+.photographer__slogan {
+  font-size: 1.8rem;
+}
+.photographer__profile-picture img {
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=style.css.map */

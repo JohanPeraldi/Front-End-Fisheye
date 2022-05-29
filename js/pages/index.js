@@ -8,7 +8,7 @@ async function displayData(photographers) {
 
   photographers.forEach((photographer) => {
     const photographerCard = document.createElement('article');
-    photographerCard.innerHTML = new PhotographerCard(photographer).createPhotographerCard();
+    photographerCard.innerHTML = new PhotographerCard(photographer, 'home').createPhotographerCard();
     photographersSection.appendChild(photographerCard);
   });
 }
