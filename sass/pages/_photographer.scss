@@ -1,13 +1,16 @@
 .photographer {
   &__header {
     display: flex;
-    justify-content: space-between;
+    //justify-content: space-between;
     align-items: center;
     background-color: $color-grey-light;
     height: 300px;
     margin: 0 100px;
     padding: 0 5rem;
+  }
 
+  &__details {
+    flex: 1 1 33%;
     & h1 {
       font-size: 6.4rem;
       color: $color-secondary;
@@ -24,7 +27,14 @@
     font-size: 1.8rem;
   }
 
+  & .wrapper {
+    flex: 1 1 33%;
+    text-align: center;
+  }
+
   &__profile-picture {
+    flex: 1 1 33%;
+    text-align: right;
     & img {
       border-radius: 50%;
     }

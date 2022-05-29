@@ -146,14 +146,16 @@ header {
 
 .photographer__header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
   padding: 0 5rem;
 }
-.photographer__header h1 {
+.photographer__details {
+  flex: 1 1 33%;
+}
+.photographer__details h1 {
   font-size: 6.4rem;
   color: #d3573c;
 }
@@ -164,6 +166,14 @@ header {
 }
 .photographer__slogan {
   font-size: 1.8rem;
+}
+.photographer .wrapper {
+  flex: 1 1 33%;
+  text-align: center;
+}
+.photographer__profile-picture {
+  flex: 1 1 33%;
+  text-align: right;
 }
 .photographer__profile-picture img {
   border-radius: 50%;
