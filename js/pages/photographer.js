@@ -1,8 +1,9 @@
 // DOM elements
 const pageTitleElement = document.querySelector('title');
 
-// Update page title
-let photographerName = 'Update me';
+// Variables used to update the page title
+// and other information relating to the photographer
+let photographerName, photographerRate;
 
 // Get id of current photographer
 let params = (new URL(document.location)).searchParams;
@@ -15,7 +16,14 @@ async function getPhotographer() {
   response.photographers.forEach(photographer => {
     if (photographer.id === +id) {
       photographerName = photographer.name;
+      photographerRate = photographer.price;
+
+      // Update page title
       pageTitleElement.textContent = 'Fisheye - ' + photographerName;
+
+      // Update info-box with photographer's daily rate
+      const dailyRateElement = document.querySelector('.rate');
+      dailyRateElement.textContent = photographerRate + '€/jour';
 
       // Call method to create photographer card on photographer page
       displayPhotographerData(photographer);
