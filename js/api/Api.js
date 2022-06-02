@@ -3,7 +3,9 @@
 
 class Api {
   /**
-   * @param {string} url - The url where the data can be found
+   * Simulate an api by fetching data from a local url
+   * @class
+   * @param {string} url - The url where the data is located
    */
   constructor(url) {
     this._url = url;
@@ -11,12 +13,15 @@ class Api {
 
   async get() {
     const response = await fetch(this._url);
-    return await response.json();
+    return response.json();
   }
 }
 
 class PhotographersApi extends Api {
   /**
+   * Simulate an api by fetching data relating to photographers from a local url
+   * @class
+   * @augments Api
    * @param {string} url - The url where the photographers' data is located
    */
   constructor(url) {
@@ -24,6 +29,6 @@ class PhotographersApi extends Api {
   }
 
   async getPhotographers() {
-    return await this.get();
+    return this.get();
   }
 }

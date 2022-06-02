@@ -1,10 +1,22 @@
-async function getPhotographers() {
-  const photographers = new PhotographersApi('../data/photographers.json');
-  return photographers.get();
+const getPhotographers = () => {
+  /**
+   * An instance of the PhotographersApi class
+   * @type {PhotographersApi}
+   * @return A method to fetch photographer objects
+   */
+  const photographersApiInstance = new PhotographersApi('../data/photographers.json');
+  return photographersApiInstance.getPhotographers();
 }
 
-async function displayData(photographers) {
-  const photographersSection = document.querySelector(".photographer_section");
+/**
+ * For each photographer object in the array passed as an argument,
+ * a photographer card element will be appended to the photographer section
+ * element.
+ * @param {Array} photographers - An array containing photographer objects
+ * @return {Promise<void>}
+ */
+const displayData = (photographers) => {
+  const photographersSection = document.querySelector('.photographer_section');
 
   photographers.forEach((photographer) => {
     const photographerCard = document.createElement('article');
@@ -13,10 +25,15 @@ async function displayData(photographers) {
   });
 }
 
-async function init() {
-  // Get photographers data
+const init = async () => {
+  /**
+   * An array containing photographer objects returned from an api
+   * @constant
+   * @type {Array}
+   */
   const {photographers} = await getPhotographers();
-  displayData(photographers);
+  await displayData(photographers);
+  return 'Homepage initialized!'
 }
 
-init();
+init().then(r => console.log(r));
