@@ -13,20 +13,20 @@ const updatePhotographerRate = (photographerRate) => {
   dailyRateElement.textContent = photographerRate + '€/jour';
 }
 
-// const displayPhotographerData = async (photographer) => {
-//   const photographerCard = document.querySelector('.photographer__header');
-//   photographerCard.innerHTML = new PhotographerCard(photographer, 'photographer').createPhotographerCard();
-// }
+const displayPhotographerData = (photographer) => {
+  const photographerHeaderElement = document.querySelector('.photographer__header');
+  photographerHeaderElement.innerHTML = new PhotographerCard(photographer, 'photographer').createPhotographerCard();
+}
 
-// const activateModal = () => {
-//   // Target DOM elements
-//   const contactButton = document.getElementById('contact_button');
-//   const closeModalIcon = document.getElementById('close-modal');
-//
-//   // Open and close modal
-//   contactButton.addEventListener('click', () => displayModal());
-//   closeModalIcon.addEventListener('click', () => closeModal());
-// }
+const activateModal = () => {
+  // Target DOM elements
+  const contactButton = document.getElementById('contact_button');
+  const closeModalIcon = document.getElementById('close-modal');
+
+  // Open and close modal
+  contactButton.addEventListener('click', () => displayModal());
+  closeModalIcon.addEventListener('click', () => closeModal());
+}
 
 const getPhotographers = () => {
   /**
@@ -49,6 +49,8 @@ const getCurrentPhotographer = () => {
       console.log(currentPhotographer);
       updatePageTitle(currentPhotographer.name);
       updatePhotographerRate(currentPhotographer.price);
+      displayPhotographerData(currentPhotographer);
+      activateModal();
 
       /**
        * An array containing the current photographer's media (images and videos)
