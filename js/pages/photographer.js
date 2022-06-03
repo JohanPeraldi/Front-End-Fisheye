@@ -18,7 +18,11 @@ const displayPhotographerData = (photographer) => {
   photographerHeaderElement.innerHTML = new PhotographerCard(photographer, 'photographer').createPhotographerCard();
 };
 
-
+// Insert the current photographer's name inside the modal title
+const updateModal = (photographer) => {
+  const modalPhotographerNameElement = document.getElementById('photographer-name');
+  modalPhotographerNameElement.textContent = photographer.name;
+};
 
 const activateModal = () => {
   // Target DOM elements
@@ -45,7 +49,6 @@ const displayPhotographerPortfolio = (media) => {
 
   media.forEach((media) => {
     const mediaCardContents = new MediaCard(media).createMediaCard();
-    console.log(mediaCardContents);
     const mediaCard = document.createElement('div');
     mediaCard.setAttribute('class', 'photographer__portfolio-card');
     mediaCard.innerHTML = mediaCardContents;
@@ -65,6 +68,7 @@ const getCurrentPhotographer = () => {
       updatePageTitle(currentPhotographer.name);
       updatePhotographerRate(currentPhotographer.price);
       displayPhotographerData(currentPhotographer);
+      updateModal(currentPhotographer);
       activateModal();
 
       /**

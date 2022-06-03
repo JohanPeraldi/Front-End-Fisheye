@@ -1,9 +1,16 @@
-header {
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  height: 90px;
+
+  &__main {
+    align-items: center;
+    height: 90px;
+
+    & h1 {
+      font-size: 3.6rem;
+    }
+  }
 }
 
 .logo {

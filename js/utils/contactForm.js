@@ -1,5 +1,5 @@
 // DOM elements
-const modal = document.getElementById("contact_modal");
+const modal = document.getElementById("contact-modal");
 
 // Open modal
 function displayModal() {

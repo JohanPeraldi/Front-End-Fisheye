@@ -16,6 +16,12 @@ html {
 
 body {
   font-family: "DM Sans", sans-serif;
+  position: relative;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -83,13 +89,23 @@ form input {
   margin-left: 1rem;
 }
 
-#contact_modal {
+#contact-modal {
   display: none;
+}
+
+.contact-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(196, 196, 196, 0.4);
+  padding-top: 5rem;
 }
 
 .modal {
   border-radius: 5px;
-  background-color: #d3573c;
+  background-color: #db8876;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -98,25 +114,41 @@ form input {
   padding: 35px;
   margin: auto;
 }
-.modal header {
-  justify-content: space-between;
+.modal .header {
+  align-items: flex-start;
   width: 100%;
+  margin-bottom: 1rem;
 }
-.modal header img {
+.modal .header img {
+  margin-top: 1.2rem;
   cursor: pointer;
 }
-.modal header h2 {
+.modal .header h2 {
   font-size: 6.4rem;
   font-weight: normal;
-  text-align: center;
+  text-align: left;
+  line-height: 1.2;
+}
+.modal .header h2 span {
+  display: block;
+}
+.modal form textarea {
+  width: 100%;
+  height: 20rem;
+  border-radius: 5px;
 }
 
-header {
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.header__main {
   align-items: center;
   height: 90px;
+}
+.header__main h1 {
+  font-size: 3.6rem;
 }
 
 .logo {

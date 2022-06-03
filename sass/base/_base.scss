@@ -10,6 +10,12 @@ html {
 
 body {
   font-family: "DM Sans", sans-serif;
+  position: relative;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 h1 {
