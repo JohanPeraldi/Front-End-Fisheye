@@ -123,13 +123,14 @@ form input {
   margin-top: 1.2rem;
   cursor: pointer;
 }
-.modal .header h2 {
+.modal .header h1 {
+  color: initial;
   font-size: 6.4rem;
   font-weight: normal;
   text-align: left;
   line-height: 1.2;
 }
-.modal .header h2 span {
+.modal .header h1 span {
   display: block;
 }
 .modal form textarea {
