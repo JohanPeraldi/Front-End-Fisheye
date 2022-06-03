@@ -49,12 +49,12 @@
     &-images {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: flex-start;
       gap: 10rem;
     }
 
     &-card {
-      flex: 1 1 28%;
+      flex: 0 1 28%;
     }
   }
 }
@@ -85,10 +85,12 @@
 }
 
 .image {
+  height: 30rem;
+  overflow: hidden;
+  border-radius: $border-radius;
+
   & img {
-    width: 100%;
     object-fit: cover;
-    border-radius: $border-radius;
   }
 
   &-description {

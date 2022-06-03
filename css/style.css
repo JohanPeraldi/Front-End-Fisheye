@@ -209,11 +209,11 @@ header {
 .photographer__portfolio-images {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   gap: 10rem;
 }
 .photographer__portfolio-card {
-  flex: 1 1 28%;
+  flex: 0 1 28%;
 }
 
 .drop-down {
@@ -238,10 +238,13 @@ header {
   color: white;
 }
 
-.image img {
-  width: 100%;
-  object-fit: cover;
+.image {
+  height: 30rem;
+  overflow: hidden;
   border-radius: 5px;
+}
+.image img {
+  object-fit: cover;
 }
 .image-description {
   display: flex;
