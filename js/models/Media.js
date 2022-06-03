@@ -1,22 +1,15 @@
 class Media {
-  constructor(id, photographerId, title, likes, date, price) {
-    this._id = id;
-    this._photographerId = photographerId;
-    this._title = title;
-    this._likes = likes;
-    this._date = date;
-    this._price = price;
-  }
-
-  get allMediaInfo() {
-    console.group('Media info');
-    console.log('Id: ' + this.id());
-    console.log('Photographer id: ' + this.photographerId());
-    console.log('Title: ' + this.title());
-    console.log('Number of likes: ' + this.likes());
-    console.log('Date: ' + this.date());
-    console.log('Price: ' + this.price());
-    console.groupEnd();
+  /**
+   * @class
+   * @param {Object} data
+   */
+  constructor(data) {
+    this._id = data.id;
+    this._photographerId = data.photographerId;
+    this._title = data.title;
+    this._likes = data.likes;
+    this._date = data.date;
+    this._price = data.price;
   }
 
   get id() {

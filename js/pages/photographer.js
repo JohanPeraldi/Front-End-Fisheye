@@ -1,22 +1,24 @@
 const getPhotographerId = () => {
   const params = (new URL(document.location)).searchParams;
   return +(params.get('id'));
-}
+};
 
 const updatePageTitle = (photographerName) => {
   const pageTitleElement = document.querySelector('title');
   pageTitleElement.textContent = 'Fisheye - ' + photographerName;
-}
+};
 
 const updatePhotographerRate = (photographerRate) => {
   const dailyRateElement = document.querySelector('.rate');
   dailyRateElement.textContent = photographerRate + '€/jour';
-}
+};
 
 const displayPhotographerData = (photographer) => {
   const photographerHeaderElement = document.querySelector('.photographer__header');
   photographerHeaderElement.innerHTML = new PhotographerCard(photographer, 'photographer').createPhotographerCard();
-}
+};
+
+
 
 const activateModal = () => {
   // Target DOM elements
@@ -26,7 +28,7 @@ const activateModal = () => {
   // Open and close modal
   contactButton.addEventListener('click', () => displayModal());
   closeModalIcon.addEventListener('click', () => closeModal());
-}
+};
 
 const getPhotographers = () => {
   /**
@@ -36,7 +38,20 @@ const getPhotographers = () => {
    */
   const photographersApiInstance = new PhotographersApi('../data/photographers.json');
   return photographersApiInstance.getPhotographers();
-}
+};
+
+const displayPhotographerPortfolio = (media) => {
+  const photographerPortfolioElement = document.querySelector('.photographer__portfolio-images');
+
+  media.forEach((media) => {
+    const mediaCardContents = new MediaCard(media).createMediaCard();
+    console.log(mediaCardContents);
+    const mediaCard = document.createElement('div');
+    mediaCard.setAttribute('class', 'photographer__portfolio-card');
+    mediaCard.innerHTML = mediaCardContents;
+    photographerPortfolioElement.appendChild(mediaCard);
+  });
+};
 
 const getCurrentPhotographer = () => {
   getPhotographers()
@@ -59,10 +74,11 @@ const getCurrentPhotographer = () => {
       const currentPhotographerMedia = [];
       response.media.forEach(media => {
         if (media.photographerId === getPhotographerId()) {
-          currentPhotographerMedia.push(media)
+          currentPhotographerMedia.push(media);
         }
       });
       console.log(currentPhotographerMedia);
+      displayPhotographerPortfolio(currentPhotographerMedia);
 
       return {currentPhotographer, currentPhotographerMedia};
   })
@@ -71,47 +87,9 @@ const getCurrentPhotographer = () => {
     })
 };
 
-// Data relating to photographers
-// response.photographers.forEach(photographer => {
-//   if (photographer.id === getPhotographerId()) {
-//     const photographerName = photographer.name;
-//     const photographerRate = photographer.price;
-//
-//     // Update page title with current photographer's name
-//     updatePageTitle(photographerName);
-//
-//     // Update info-box with current photographer's daily rate
-//     updatePhotographerRate(photographerRate);
-//
-//     // Call method to create current photographer's card
-//     displayPhotographerData(photographer);
-//
-//     activateModal();
-//
-//     // return photographer; // Is this needed?
-//   }
-// });
-// Data relating to media (images and videos)
-// response.media.forEach(media => {
-//   if (media.photographerId === getPhotographerId()) {
-//     // For each Media object with a photographerId matching
-//     // the id passed as a search parameter,
-//     // we create a Media object using the Media Factory
-//     return new MediaFactory(media);
-//   }
-// });
-
-// Display photographer portfolio
-// async function displayPhotographerPortfolio(photographerId) {
-//   const photographerPortfolio = document.querySelector('.photographer__portfolio-images');
-//   photographerPortfolio.innerHTML = new PhotographerPortfolio(photographerId).createPortfolio();
-// }
-
-// getPhotographerData();
-
 const init = async () => {
   getCurrentPhotographer();
   return 'Photographer page initialized!';
-}
+};
 
 init().then(r => console.log(r));

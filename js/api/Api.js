@@ -1,6 +1,3 @@
-// Simulates an api
-// Fetch data from json file
-
 class Api {
   /**
    * Simulate an api by fetching data from a local url
