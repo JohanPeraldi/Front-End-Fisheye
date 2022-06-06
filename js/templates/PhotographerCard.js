@@ -26,7 +26,7 @@ class PhotographerCard {
             <p class="photographer__slogan">${this._photographer.tagline}</p>          
           </div>
           <div class="wrapper">
-            <button class="contact_button" id="contact_button">Contactez-moi</button>
+            <button class="contact-button" id="contact-button">Contactez-moi</button>
           </div>
           <div class="photographer__profile-picture">
             <img src="assets/photographers/${this._photographer.portrait}" alt="${this._photographer.name}">

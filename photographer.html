@@ -12,34 +12,36 @@
   </head>
   <body>
 	  <div class="container">
-	    <header class="header header__main">
-		    <a href="index.html">
-			    <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page">
-		    </a>
-	    </header>
-	    <main id="main">
-	      <article class="photographer__header"></article>
-		    <article class="photographer__portfolio">
-			    <div class="drop-down">
-				    <label for="photograph-sort">Trier par</label>
-				    <select name="sort" id="photograph-sort">
-					    <option value="popularity">Popularité</option>
-					    <option value="date">Date</option>
-					    <option value="title">Titre</option>
-				    </select>
+		  <div id="content-wrapper">
+		    <header class="header header__main">
+			    <a href="index.html">
+				    <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page">
+			    </a>
+		    </header>
+		    <main id="main">
+		      <article class="photographer__header"></article>
+			    <article class="photographer__portfolio">
+				    <div class="drop-down">
+					    <label for="photograph-sort">Trier par</label>
+					    <select name="sort" id="photograph-sort">
+						    <option value="popularity">Popularité</option>
+						    <option value="date">Date</option>
+						    <option value="title">Titre</option>
+					    </select>
+				    </div>
+				    <div class="photographer__portfolio-images"></div>
+			    </article>
+			    <div class="info-box">
+				    <span class="likes">297 081<svg width="24px" height="24px" viewBox="0 0 512 512" fill="#000" xmlns="http://www.w3.org/2000/svg"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg></span>
+				    <span class="rate">Mon tarif</span>
 			    </div>
-			    <div class="photographer__portfolio-images"></div>
-		    </article>
-		    <div class="info-box">
-			    <span class="likes">297 081<svg width="24px" height="24px" viewBox="0 0 512 512" fill="#000" xmlns="http://www.w3.org/2000/svg"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg></span>
-			    <span class="rate">Mon tarif</span>
-		    </div>
-	    </main>
-	    <div id="contact-modal" class="contact-modal">
+		    </main>
+		  </div>
+	    <div id="contact-modal" class="contact-modal" role="dialog" aria-labelledby="dialog-title" aria-hidden="true">
 				<div class="modal">
 					<header class="header">
-	          <h1>Contactez-moi<span id="photographer-name"></span></h1>
-	          <img src="assets/icons/close.svg" id="close-modal" alt="close modal">
+	          <h1 id="dialog-title">Contactez-moi<span id="photographer-name"></span></h1>
+	          <img src="assets/icons/close.svg" id="close-modal" role="button" tabindex="0" alt="close modal">
 	        </header>
 					<form>
 						<div>
@@ -56,9 +58,9 @@
 						</div>
 						<div>
 							<label for="message">Votre message</label>
-							<textarea name="message" id="message"></textarea>
+							<textarea name="message" id="message" rows="4"></textarea>
 						</div>
-	          <button class="contact_button">Envoyer</button>
+	          <button class="contact-button">Envoyer</button>
 					</form>
 				</div>
 			</div>

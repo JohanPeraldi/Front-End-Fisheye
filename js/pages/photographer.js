@@ -26,12 +26,27 @@ const updateModal = (photographer) => {
 
 const activateModal = () => {
   // Target DOM elements
-  const contactButton = document.getElementById('contact_button');
+  const contactButton = document.getElementById('contact-button');
   const closeModalIcon = document.getElementById('close-modal');
 
-  // Open and close modal
+  // Set focus on contactButton
+  contactButton.focus();
+
+  // Open modal
   contactButton.addEventListener('click', () => displayModal());
+
+  // Close modal
+  // 1. With mouse click
   closeModalIcon.addEventListener('click', () => closeModal());
+  // 2. With keyboard Escape or Enter keys
+  closeModalIcon.addEventListener('keydown', event => {
+    const key = event.key;
+    console.log(key);
+    if (key === 'Escape' || key === 'Enter') {
+      closeModal();
+      // contactButton.focus(); // If uncommented, pressing 'Enter' does not close modal!
+    }
+  })
 };
 
 const getPhotographers = () => {
