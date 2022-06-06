@@ -41,7 +41,6 @@ const activateModal = () => {
   // 2. With keyboard Escape or Enter keys
   closeModalIcon.addEventListener('keydown', event => {
     const key = event.key;
-    console.log(key);
     if (key === 'Escape' || key === 'Enter') {
       closeModal();
       // contactButton.focus(); // If uncommented, pressing 'Enter' does not close modal!
@@ -79,7 +78,6 @@ const getCurrentPhotographer = () => {
        * @type {Object}
        */
       const currentPhotographer = response.photographers.find(photographer => photographer.id === getPhotographerId());
-      console.log(currentPhotographer);
       updatePageTitle(currentPhotographer.name);
       updatePhotographerRate(currentPhotographer.price);
       displayPhotographerData(currentPhotographer);
@@ -96,7 +94,6 @@ const getCurrentPhotographer = () => {
           currentPhotographerMedia.push(media);
         }
       });
-      console.log(currentPhotographerMedia);
       displayPhotographerPortfolio(currentPhotographerMedia);
 
       return {currentPhotographer, currentPhotographerMedia};
