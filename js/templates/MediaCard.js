@@ -24,7 +24,7 @@ class MediaCard {
     } else if (this._video) {
       return  `
         <div class="image">
-          <video controls>
+          <video controls preload="none" poster="assets/images/${this._photographerId}/${(this._video).slice(0, -3)}jpg">
             <source src="assets/videos/${this._photographerId}/${this._video}" type="video/mp4">
               Désolé, votre navigateur ne prend pas en charge ce type de média.
           </video>
