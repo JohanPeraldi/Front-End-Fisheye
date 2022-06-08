@@ -41,4 +41,12 @@ const mediaCommonAncestor = document.querySelector('.photographer__portfolio-ima
 mediaCommonAncestor.addEventListener('click', handleClickOnMedia);
 
 // Activate close button
+// 1. Close on mouse click
 closeLightboxElement.addEventListener('click', closeLightbox);
+// 2. Close on Escape or Enter key press
+closeLightboxElement.addEventListener('keydown', $event => {
+  const key = $event.key;
+  if (key === 'Escape' || key === 'Enter') {
+    closeLightbox();
+  }
+});
