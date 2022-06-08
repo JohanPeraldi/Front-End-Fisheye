@@ -13,7 +13,7 @@ class MediaCard {
   createMediaCard() {
     if (this._image) {
       return `
-        <div class="image">
+        <div class="image" id="${this._id}">
           <img src="assets/images/${this._photographerId}/${this._image}" alt="${this._title}">
         </div>
         <div class="image-description">
@@ -23,7 +23,7 @@ class MediaCard {
       `;
     } else if (this._video) {
       return  `
-        <div class="image">
+        <div class="image" id="${this._id}">
           <video controls preload="none" poster="assets/images/${this._photographerId}/${(this._video).slice(0, -3)}jpg">
             <source src="assets/videos/${this._photographerId}/${this._video}" type="video/mp4">
               Désolé, votre navigateur ne prend pas en charge ce type de média.

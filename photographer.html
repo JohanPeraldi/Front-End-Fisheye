@@ -68,6 +68,25 @@
 					</form>
 				</div>
 			</div>
+		  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-labelledby="#" aria-hidden="true">
+			  <div id="lightbox" class="lightbox">
+				  <div class="lightbox__slider">
+					  <div class="lightbox__controls">
+						  <img src="assets/icons/previous.svg" class="lightbox__previous" role="button" alt="previous media">
+					  </div>
+					  <div class="lightbox__image">
+						  <img src="https://picsum.photos/id/1002/1200/900" alt="NASA placeholder image">
+					  </div>
+					  <div class="lightbox__controls">
+						  <img src="assets/icons/close-primary.svg" id="lightbox__close" class="lightbox__close" role="button" tabindex="0" alt="close lightbox">
+						  <img src="assets/icons/next.svg" class="lightbox__next" role="button" alt="next media">
+					  </div>
+				  </div>
+				  <div class="lightbox__description">
+					  <p>NASA placeholder image</p>
+				  </div>
+			  </div>
+		  </div>
 	  </div>
     <script src="js/api/Api.js"></script>
     <script src="js/factories/MediaFactory.js"></script>
@@ -79,5 +98,6 @@
     <script src="js/pages/photographer.js"></script>
     <script src="js/utils/modal.js"></script>
     <script src="js/utils/contactForm.js"></script>
+    <script src="js/utils/lightbox.js"></script>
   </body>
 </html>

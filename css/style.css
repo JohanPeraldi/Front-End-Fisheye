@@ -114,6 +114,51 @@ form input:focus, form textarea:focus {
   margin-left: 1rem;
 }
 
+#lightbox-modal {
+  display: none;
+}
+
+.lightbox-modal {
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(196, 196, 196, 0.4);
+  padding: 5rem;
+  z-index: 1000;
+}
+
+.lightbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.lightbox__slider {
+  display: flex;
+}
+.lightbox__controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+}
+.lightbox__image {
+  max-height: 80vh;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.lightbox__next, .lightbox__previous {
+  height: 62px;
+}
+.lightbox__close {
+  position: absolute;
+  top: 5rem;
+}
+
 #contact-modal {
   display: none;
 }
@@ -272,8 +317,9 @@ form input:focus, form textarea:focus {
 .photographer__portfolio-images {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 10rem;
+  justify-content: space-between;
+  row-gap: 5rem;
+  column-gap: 10rem;
 }
 .photographer__portfolio-card {
   flex: 0 1 28%;

@@ -49,8 +49,9 @@
     &-images {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-start;
-      gap: 10rem;
+      justify-content: space-between;
+      row-gap: 5rem;
+      column-gap: 10rem;
     }
 
     &-card {

@@ -1,0 +1,50 @@
+#lightbox-modal {
+  display: none;
+}
+
+.lightbox-modal {
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-modal-background;
+  padding: 5rem;
+  z-index: 1000;
+}
+
+.lightbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__slider {
+    display: flex;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem;
+  }
+
+  &__image {
+    max-height: 80vh;
+    overflow: hidden;
+    border-radius: $border-radius;
+  }
+
+  &__next,
+  &__previous {
+    height: 62px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 5rem;
+  }
+}
