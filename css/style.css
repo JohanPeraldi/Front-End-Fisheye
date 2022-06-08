@@ -125,8 +125,8 @@ form input:focus, form textarea:focus {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(196, 196, 196, 0.4);
+  height: 100vh;
+  background-color: white;
   padding: 5rem;
   z-index: 1000;
 }
@@ -136,15 +136,17 @@ form input:focus, form textarea:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: auto 0;
 }
 .lightbox__slider {
   display: flex;
+  position: relative;
 }
 .lightbox__controls {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 1rem;
+  margin: 3rem;
 }
 .lightbox__image {
   max-height: 80vh;
@@ -153,10 +155,28 @@ form input:focus, form textarea:focus {
 }
 .lightbox__next, .lightbox__previous {
   height: 62px;
+  cursor: pointer;
+}
+.lightbox__next:focus, .lightbox__previous:focus {
+  outline: 2px solid #901c1c;
+  box-shadow: 0 0 16px 12px #901c1c;
 }
 .lightbox__close {
   position: absolute;
-  top: 5rem;
+  top: 1rem;
+  cursor: pointer;
+}
+.lightbox__close:focus {
+  outline: 2px solid #901c1c;
+  box-shadow: 0 0 16px 12px #901c1c;
+}
+.lightbox__description {
+  align-self: flex-start;
+  font-size: 2.4rem;
+  color: #901c1c;
+  text-align: left;
+  margin-top: 1rem;
+  margin-left: 10rem;
 }
 
 #contact-modal {

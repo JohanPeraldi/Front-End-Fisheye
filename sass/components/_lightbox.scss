@@ -9,8 +9,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: $color-modal-background;
+  height: 100vh;
+  background-color: white;
   padding: 5rem;
   z-index: 1000;
 }
@@ -20,16 +20,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: auto 0;
 
   &__slider {
     display: flex;
+    position: relative;
   }
 
   &__controls {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 1rem;
+    margin: 3rem;
   }
 
   &__image {
@@ -41,10 +43,29 @@
   &__next,
   &__previous {
     height: 62px;
+    cursor: pointer;
+
+    &:focus {
+      @include box-shadow-icon-focus;
+    }
   }
 
   &__close {
     position: absolute;
-    top: 5rem;
+    top: 1rem;
+    cursor: pointer;
+
+    &:focus {
+      @include box-shadow-icon-focus;
+    }
+  }
+
+  &__description {
+    align-self: flex-start;
+    font-size: 2.4rem;
+    color: $color-primary;
+    text-align: left;
+    margin-top: 1rem;
+    margin-left: 10rem;
   }
 }

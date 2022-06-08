@@ -1,12 +1,10 @@
 // DOM elements
-// const bodyElement = document.querySelector('body');
-// const contentWrapperElement = document.getElementById('content-wrapper');
 const lightboxModal = document.getElementById('lightbox-modal');
 const closeLightboxElement = document.getElementById('lightbox__close');
 
 // Open lightbox
 const openLightbox = () => {
-  // bodyElement.classList.add('no-scroll');
+  bodyElement.classList.add('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'true');
   lightboxModal.style.display = 'flex';
   lightboxModal.setAttribute('aria-hidden', 'false');
@@ -15,7 +13,7 @@ const openLightbox = () => {
 
 // Close lightbox
 const closeLightbox = () => {
-  // bodyElement.classList.remove('no-scroll');
+  bodyElement.classList.remove('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'false');
   lightboxModal.style.display = 'none';
   lightboxModal.setAttribute('aria-hidden', 'true');
@@ -31,7 +29,6 @@ const handleClickOnMedia = ($event) => {
     console.log('Clicked item alt text: ' + clickedItem);
     console.log('$event: ' + $event);
     console.log('Clicked image id: ' + clickedItemParentsId);
-    // We want to open lightbox
     openLightbox();
   }
   $event.stopPropagation();
