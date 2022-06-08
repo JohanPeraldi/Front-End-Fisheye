@@ -1,9 +1,50 @@
 // DOM elements
 const lightboxModal = document.getElementById('lightbox-modal');
 const closeLightboxElement = document.getElementById('lightbox__close');
+const lightboxImageContainer = document.querySelector('.lightbox__image');
+const lightboxDescriptionContainer = document.querySelector('.lightbox__description');
+
+// The current photographer's media
+let mediaItems;
+
+const fillLightbox = (media) => {
+  console.log(media);
+  mediaItems = media;
+
+  return media;
+};
 
 // Open lightbox
-const openLightbox = () => {
+const openLightbox = (mediaId) => {
+  console.log('Media id: ' + mediaId);
+  // The current photographer's id
+  const photographerId = getPhotographerId();
+  console.log('Photographer id: ' + photographerId);
+  // The current image
+  const currentMedia = mediaItems.find(item => item.id === +mediaId);
+  console.log(currentMedia);
+  let filename;
+  currentMedia.image ? filename = currentMedia.image : filename = currentMedia.video;
+  // The alt text of the current image
+  const imageAltText = currentMedia.title;
+  // Insert clicked photo or video inside the lightbox
+  if (currentMedia.image) {
+    lightboxImageContainer.innerHTML = `
+      <img src="/assets/images/${photographerId}/${filename}" alt="${imageAltText}">
+    `;
+  } else {
+    lightboxImageContainer.innerHTML = `
+      <video controls>
+        <source src="/assets/videos/${photographerId}/${filename}">
+        Désolé, votre navigateur ne prend pas en charge ce type de média.
+      </video>
+    `;
+  }
+  // Insert image description
+  lightboxDescriptionContainer.innerHTML = `
+    <p>${imageAltText}</p>
+  `;
+
   bodyElement.classList.add('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'true');
   lightboxModal.style.display = 'flex';
@@ -21,17 +62,20 @@ const closeLightbox = () => {
 
 // Handle click event on media elements
 const handleClickOnMedia = ($event) => {
-  console.log('$event.target.parentElement.classList: ' + $event.target.parentElement.classList);
-  console.log('$event.currentTarget.classList: ' + $event.currentTarget.classList);
+  // console.log('$event.target.parentElement.classList: ' + $event.target.parentElement.classList);
+  // console.log('$event.currentTarget.classList: ' + $event.currentTarget.classList);
+  let clickedItemParentId;
   if ($event.target !== $event.currentTarget) {
-    const clickedItem = $event.target.alt;
-    const clickedItemParentsId = $event.target.parentElement.id;
-    console.log('Clicked item alt text: ' + clickedItem);
-    console.log('$event: ' + $event);
-    console.log('Clicked image id: ' + clickedItemParentsId);
-    openLightbox();
+    // const clickedItem = $event.target.alt;
+    clickedItemParentId = $event.target.parentElement.id;
+    // console.log('Clicked item alt text: ' + clickedItem);
+    // console.log('$event: ' + $event);
+    // console.log('Clicked image id: ' + clickedItemParentId);
+    openLightbox(clickedItemParentId);
   }
   $event.stopPropagation();
+
+  return clickedItemParentId;
 };
 
 // We target the nearest common ancestor of all media elements

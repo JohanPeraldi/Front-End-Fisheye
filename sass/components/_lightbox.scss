@@ -38,6 +38,11 @@
     max-height: 80vh;
     overflow: hidden;
     border-radius: $border-radius;
+
+    & img,
+    & video {
+      border-radius: $border-radius;
+    }
   }
 
   &__next,

@@ -94,6 +94,11 @@
     object-fit: cover;
   }
 
+  & img,
+  & video {
+    border-radius: $border-radius;
+  }
+
   &-description {
     display: flex;
     justify-content: space-between;

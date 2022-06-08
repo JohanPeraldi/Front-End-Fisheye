@@ -153,6 +153,9 @@ form input:focus, form textarea:focus {
   overflow: hidden;
   border-radius: 5px;
 }
+.lightbox__image img, .lightbox__image video {
+  border-radius: 5px;
+}
 .lightbox__next, .lightbox__previous {
   height: 62px;
   cursor: pointer;
@@ -374,6 +377,9 @@ form input:focus, form textarea:focus {
 }
 .image img {
   object-fit: cover;
+}
+.image img, .image video {
+  border-radius: 5px;
 }
 .image-description {
   display: flex;

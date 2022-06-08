@@ -95,6 +95,7 @@ const getCurrentPhotographer = () => {
         }
       });
       displayPhotographerPortfolio(currentPhotographerMedia);
+      fillLightbox(currentPhotographerMedia);
 
       return {currentPhotographer, currentPhotographerMedia};
   })
