@@ -3,26 +3,24 @@ const lightboxModal = document.getElementById('lightbox-modal');
 const closeLightboxElement = document.getElementById('lightbox__close');
 const lightboxImageContainer = document.querySelector('.lightbox__image');
 const lightboxDescriptionContainer = document.querySelector('.lightbox__description');
+const previousImageIcon = document.querySelector('.lightbox__previous');
+const nextImageIcon = document.querySelector('.lightbox__next');
 
 // The current photographer's media
 let mediaItems;
 
 const fillLightbox = (media) => {
-  console.log(media);
   mediaItems = media;
 
   return media;
 };
 
-// Open lightbox
-const openLightbox = (mediaId) => {
-  console.log('Media id: ' + mediaId);
+// Display media inside lightbox
+const displayMedia = (mediaId) => {
   // The current photographer's id
   const photographerId = getPhotographerId();
-  console.log('Photographer id: ' + photographerId);
   // The current image
   const currentMedia = mediaItems.find(item => item.id === +mediaId);
-  console.log(currentMedia);
   let filename;
   currentMedia.image ? filename = currentMedia.image : filename = currentMedia.video;
   // The alt text of the current image
@@ -44,12 +42,17 @@ const openLightbox = (mediaId) => {
   lightboxDescriptionContainer.innerHTML = `
     <p>${imageAltText}</p>
   `;
+};
 
+// Open lightbox
+const openLightbox = (mediaId) => {
   bodyElement.classList.add('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'true');
   lightboxModal.style.display = 'flex';
   lightboxModal.setAttribute('aria-hidden', 'false');
   closeLightboxElement.focus();
+
+  displayMedia(mediaId);
 }
 
 // Close lightbox
@@ -62,15 +65,9 @@ const closeLightbox = () => {
 
 // Handle click event on media elements
 const handleClickOnMedia = ($event) => {
-  // console.log('$event.target.parentElement.classList: ' + $event.target.parentElement.classList);
-  // console.log('$event.currentTarget.classList: ' + $event.currentTarget.classList);
   let clickedItemParentId;
   if ($event.target !== $event.currentTarget) {
-    // const clickedItem = $event.target.alt;
     clickedItemParentId = $event.target.parentElement.id;
-    // console.log('Clicked item alt text: ' + clickedItem);
-    // console.log('$event: ' + $event);
-    // console.log('Clicked image id: ' + clickedItemParentId);
     openLightbox(clickedItemParentId);
   }
   $event.stopPropagation();
@@ -94,3 +91,20 @@ closeLightboxElement.addEventListener('keydown', $event => {
     closeLightbox();
   }
 });
+
+// Navigation between images
+const handleClickOnPreviousImageIcon = () => {
+  console.log('Go to previous image');
+  console.log(mediaItems);
+  // Steps:
+  // 1. Find index of current image
+  // 2. Find id of previous image
+};
+
+const handleClickOnNextImageIcon = () => {
+  console.log('Go to next image');
+  console.log(mediaItems);
+};
+
+previousImageIcon.addEventListener('click', handleClickOnPreviousImageIcon);
+nextImageIcon.addEventListener('click', handleClickOnNextImageIcon);
