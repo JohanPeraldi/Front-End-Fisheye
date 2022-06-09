@@ -62,7 +62,7 @@ const displayPhotographerPortfolio = (media) => {
   const photographerPortfolioElement = document.querySelector('.photographer__portfolio-images');
 
   media.forEach((media) => {
-    const mediaCardContents = new MediaCard(media).createMediaCard();
+    const mediaCardContents = mediaFactory(media).getMediaCard(media.id);
     const mediaCard = document.createElement('div');
     mediaCard.setAttribute('class', 'photographer__portfolio-card');
     mediaCard.innerHTML = mediaCardContents;
