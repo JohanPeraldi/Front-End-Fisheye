@@ -8,10 +8,10 @@ class PhotographerCard {
     switch (this._page) {
       case('home'):
         return `
-          <a href="photographer.html?id=${this._photographer.id}"
+          <a href="./photographer.html?id=${this._photographer.id}"
              aria-label="${this._photographer.name}"
              >
-             <img src="assets/photographers/${this._photographer.portrait}" alt="">
+             <img src="./assets/photographers/${this._photographer.portrait}" alt="">
              <h2>${this._photographer.name}</h2>
           </a>
           <p class="photographer__location">${this._photographer.city}, ${this._photographer.country}</p>
@@ -29,7 +29,7 @@ class PhotographerCard {
             <button class="contact-button" id="contact-button">Contactez-moi</button>
           </div>
           <div class="photographer__profile-picture">
-            <img src="assets/photographers/${this._photographer.portrait}" alt="${this._photographer.name}">
+            <img src="./assets/photographers/${this._photographer.portrait}" alt="${this._photographer.name}">
           </div>
         `;
     }
