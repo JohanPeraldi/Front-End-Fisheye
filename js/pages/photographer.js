@@ -54,7 +54,7 @@ const getPhotographers = () => {
    * @type {PhotographersApi}
    * @return A method to fetch photographer objects
    */
-  const photographersApiInstance = new PhotographersApi('data/photographers.json');
+  const photographersApiInstance = new PhotographersApi('/data/photographers.json');
   return photographersApiInstance.getPhotographers();
 };
 
