@@ -28,12 +28,12 @@ const displayMedia = (mediaId) => {
   // Insert clicked photo or video inside the lightbox
   if (currentMedia.image) {
     lightboxImageContainer.innerHTML = `
-      <img src="/assets/images/${photographerId}/${filename}" alt="${imageAltText}">
+      <img src="./assets/images/${photographerId}/${filename}" alt="${imageAltText}">
     `;
   } else {
     lightboxImageContainer.innerHTML = `
       <video controls>
-        <source src="/assets/videos/${photographerId}/${filename}">
+        <source src="./assets/videos/${photographerId}/${filename}">
         Désolé, votre navigateur ne prend pas en charge ce type de média.
       </video>
     `;
