@@ -62,10 +62,21 @@ const displayPhotographerPortfolio = (media) => {
   const photographerPortfolioElement = document.querySelector('.photographer__portfolio-images');
 
   media.forEach((media) => {
+    // Get the adequate media card (image or video) from the factory
     const mediaCardContents = mediaFactory(media).getMediaCard(media.id);
     const mediaCard = document.createElement('div');
     mediaCard.setAttribute('class', 'photographer__portfolio-card');
     mediaCard.innerHTML = mediaCardContents;
+    // Create the media description element
+    const mediaDescriptionElement = document.createElement('div');
+    mediaDescriptionElement.setAttribute('class', 'image-description');
+    mediaDescriptionElement.innerHTML = `
+      <h2>${media.title}</h2>
+      <span>${media.likes}<svg width="24px" height="24px" viewBox="0 0 512 512" fill="#901c1c" xmlns="http://www.w3.org/2000/svg"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg></span>
+    `;
+    // Add it to the media card
+    mediaCard.appendChild(mediaDescriptionElement);
+    // Add the media card to the DOM
     photographerPortfolioElement.appendChild(mediaCard);
   });
 };
