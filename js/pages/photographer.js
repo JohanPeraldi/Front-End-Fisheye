@@ -42,9 +42,9 @@ const activateModal = () => {
   // 2. With keyboard Escape or Enter keys
   closeModalIcon.addEventListener('keydown', event => {
     const key = event.key;
-    if (key === 'Escape' || key === 'Enter') {
+    if (key === 'Escape') {
       closeModal();
-      // contactButton.focus(); // If uncommented, pressing 'Enter' does not close modal!
+      contactButton.focus();
     }
   })
 };
