@@ -61,6 +61,9 @@ const closeLightbox = () => {
   contentWrapperElement.setAttribute('aria-hidden', 'false');
   lightboxModal.style.display = 'none';
   lightboxModal.setAttribute('aria-hidden', 'true');
+  // After closing the lightbox, the focus should be set on the Contact button
+  const contactButton = document.getElementById('contact-button');
+  contactButton.focus();
 }
 
 // Handle click event on media elements
