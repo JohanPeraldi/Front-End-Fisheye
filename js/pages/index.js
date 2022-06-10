@@ -6,7 +6,7 @@ const getPhotographers = () => {
    */
   const photographersApiInstance = new PhotographersApi('data/photographers.json');
   return photographersApiInstance.getPhotographers();
-}
+};
 
 /**
  * For each photographer object in the array passed as an argument,
@@ -16,14 +16,14 @@ const getPhotographers = () => {
  * @return {Promise<void>}
  */
 const displayData = (photographers) => {
-  const photographersSection = document.querySelector('.photographer_section');
+  const photographerSection = document.querySelector('.photographer_section');
 
-  photographers.forEach((photographer) => {
-    const photographerCard = document.createElement('article');
-    photographerCard.innerHTML = new PhotographerCard(photographer, 'home').createPhotographerCard();
-    photographersSection.appendChild(photographerCard);
+  photographers.forEach(photographer => {
+    // Get the adequate photographer card from the factory
+    const photographerCard = photographerFactory(photographer, 'home').getPhotographerCard();
+    photographerSection.appendChild(photographerCard);
   });
-}
+};
 
 const init = async () => {
   /**
@@ -34,6 +34,6 @@ const init = async () => {
   const {photographers} = await getPhotographers();
   await displayData(photographers);
   return 'Homepage initialized!';
-}
+};
 
 init().then(r => console.log(r));

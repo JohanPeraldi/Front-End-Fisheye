@@ -14,8 +14,9 @@ const updatePhotographerRate = (photographerRate) => {
 };
 
 const displayPhotographerData = (photographer) => {
-  const photographerHeaderElement = document.querySelector('.photographer__header');
-  photographerHeaderElement.innerHTML = new PhotographerCard(photographer, 'photographer').createPhotographerCard();
+  const main = document.getElementById('main');
+  const photographerCard = photographerFactory(photographer, 'photographer').getPhotographerCard();
+  main.prepend(photographerCard);
 };
 
 // Insert the current photographer's name inside the modal title
