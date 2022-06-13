@@ -14,7 +14,7 @@
 	  <div class="container">
 		  <div id="content-wrapper">
 		    <header class="header header__main">
-			    <a href="./index.html">
+			    <a href="./index.html" class="clickable">
 				    <img src="./assets/images/logo.png" class="logo" alt="Fisheye Home page">
 			    </a>
 		    </header>
@@ -22,7 +22,7 @@
 			    <article class="photographer__portfolio">
 				    <div class="drop-down">
 					    <label for="photograph-sort">Trier par</label>
-					    <select name="sort" id="photograph-sort">
+					    <select name="sort" class="clickable" id="photograph-sort">
 						    <option value="popularity">Popularité</option>
 						    <option value="date">Date</option>
 						    <option value="title">Titre</option>
@@ -40,28 +40,28 @@
 				<div class="modal">
 					<header class="header">
 	          <h1 id="dialog-title">Contactez-moi<span id="photographer-name"></span></h1>
-	          <img src="./assets/icons/close.svg" id="close-modal" role="button" tabindex="0" alt="close modal">
+	          <img src="./assets/icons/close.svg" class="clickable" id="close-modal" role="button" tabindex="0" alt="close modal">
 	        </header>
 					<form action="#" method="post" id="contact-form">
 						<ul>
 							<li>
 								<label for="first-name">Prénom</label>
-								<input type="text" name="first-name" id="first-name" required>
+								<input type="text" name="first-name" class="clickable" id="first-name" required>
 							</li>
 							<li>
 								<label for="last-name">Nom</label>
-								<input type="text" name="last-name" id="last-name" required>
+								<input type="text" name="last-name" class="clickable" id="last-name" required>
 							</li>
 							<li>
 								<label for="email">Email</label>
-								<input type="email" name="email" id="email" required>
+								<input type="email" name="email" class="clickable" id="email" required>
 							</li>
 							<li>
 								<label for="message">Votre message</label>
-								<textarea name="message" id="message" rows="4" required></textarea>
+								<textarea name="message" class="clickable" id="message" rows="4" required></textarea>
 							</li>
 	            <li class="button">
-								<button type="submit" class="contact-button">Envoyer</button>
+								<button type="submit" class="contact-button clickable">Envoyer</button>
 	            </li>
 						</ul>
 					</form>
@@ -71,7 +71,7 @@
 			  <div id="lightbox" class="lightbox">
 				  <div class="lightbox__slider">
 					  <div class="lightbox__controls">
-						  <a href="#">
+						  <a href="#" class="clickable">
 							  <img src="./assets/icons/previous.svg" class="lightbox__previous" role="link" tabindex="0" alt="previous image">
 						  </a>
 					  </div>
@@ -79,8 +79,8 @@
 						  <img src="https://picsum.photos/id/1002/1200/900" alt="NASA placeholder image">
 					  </div>
 					  <div class="lightbox__controls">
-						  <img src="./assets/icons/close-primary.svg" id="lightbox__close" class="lightbox__close" role="button" tabindex="0" alt="close dialog">
-						  <a href="#">
+						  <img src="./assets/icons/close-primary.svg" id="lightbox__close" class="lightbox__close clickable" role="button" tabindex="0" alt="close dialog">
+						  <a href="#" class="clickable">
 							  <img src="./assets/icons/next.svg" class="lightbox__next" role="link" tabindex="0" alt="next image">
 						  </a>
 					  </div>

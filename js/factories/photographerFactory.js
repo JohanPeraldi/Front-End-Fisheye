@@ -7,7 +7,7 @@ function photographerFactory(data, page) {
     if (page === 'home') {
       const article = document.createElement('article');
       article.innerHTML = `
-        <a href="./photographer.html?id=${id}" aria-label="${name}">
+        <a href="./photographer.html?id=${id}" class="clickable" aria-label="${name}">
           <img src="${pathToProfilePicture}" alt="${name}">
           <h2>${name}</h2>
         </a>
@@ -28,7 +28,7 @@ function photographerFactory(data, page) {
           <p class="photographer__slogan">${tagline}</p>          
         </div>
         <div class="wrapper">
-          <button class="contact-button" id="contact-button">Contactez-moi</button>
+          <button class="contact-button clickable" id="contact-button">Contactez-moi</button>
         </div>
         <div class="photographer__profile-picture">
           <img src="${pathToProfilePicture}" alt="${name}">

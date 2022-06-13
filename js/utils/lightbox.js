@@ -1,4 +1,5 @@
 // DOM elements
+const mainElement = document.getElementById('main');
 const lightboxModal = document.getElementById('lightbox-modal');
 const closeLightboxElement = document.getElementById('lightbox__close');
 const lightboxImageContainer = document.querySelector('.lightbox__image');
@@ -28,11 +29,11 @@ const displayMedia = (mediaId) => {
   // Insert clicked photo or video inside the lightbox
   if (currentMedia.image) {
     lightboxImageContainer.innerHTML = `
-      <img src="./assets/images/${photographerId}/${filename}" alt="${imageAltText}">
+      <img src="./assets/images/${photographerId}/${filename}" class="clickable" alt="${imageAltText}">
     `;
   } else {
     lightboxImageContainer.innerHTML = `
-      <video controls>
+      <video class="clickable" controls>
         <source src="./assets/videos/${photographerId}/${filename}">
         Désolé, votre navigateur ne prend pas en charge ce type de média.
       </video>
@@ -46,6 +47,7 @@ const displayMedia = (mediaId) => {
 
 // Open lightbox
 const openLightbox = (mediaId) => {
+  mainElement.style.display = 'none';
   bodyElement.classList.add('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'true');
   lightboxModal.style.display = 'flex';
@@ -57,6 +59,7 @@ const openLightbox = (mediaId) => {
 
 // Close lightbox
 const closeLightbox = () => {
+  mainElement.style.display = 'block';
   bodyElement.classList.remove('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'false');
   lightboxModal.style.display = 'none';
@@ -68,14 +71,11 @@ const closeLightbox = () => {
 
 // Handle click event on media elements
 const handleClickOnMedia = ($event) => {
-  let clickedItemParentId;
-  if ($event.target !== $event.currentTarget) {
-    clickedItemParentId = $event.target.parentElement.id;
-    openLightbox(clickedItemParentId);
-  }
+  const clickedMediaId = $event.target.id;
+  openLightbox(clickedMediaId);
   $event.stopPropagation();
 
-  return clickedItemParentId;
+  return clickedMediaId;
 };
 
 // We target the nearest common ancestor of all media elements

@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
 html {
@@ -27,6 +28,10 @@ body {
 h1 {
   color: #901c1c;
   margin-right: 100px;
+}
+
+.clickable {
+  pointer-events: auto;
 }
 
 .contact-button {
