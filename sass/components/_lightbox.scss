@@ -47,11 +47,14 @@
 
   &__next,
   &__previous {
-    height: 62px;
     cursor: pointer;
 
     &:focus {
       @include box-shadow-icon-focus;
+    }
+
+    & img {
+      height: 62px;
     }
   }
 

@@ -162,12 +162,14 @@ form input:focus, form textarea:focus {
   border-radius: 5px;
 }
 .lightbox__next, .lightbox__previous {
-  height: 62px;
   cursor: pointer;
 }
 .lightbox__next:focus, .lightbox__previous:focus {
   outline: 2px solid #901c1c;
   box-shadow: 0 0 16px 12px #901c1c;
+}
+.lightbox__next img, .lightbox__previous img {
+  height: 62px;
 }
 .lightbox__close {
   position: absolute;
@@ -379,6 +381,10 @@ form input:focus, form textarea:focus {
   height: 30rem;
   overflow: hidden;
   border-radius: 5px;
+}
+.image:focus {
+  outline: 2px solid #901c1c;
+  box-shadow: 0 0 16px 12px #901c1c;
 }
 .image img {
   object-fit: cover;

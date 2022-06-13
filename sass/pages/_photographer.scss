@@ -90,6 +90,10 @@
   overflow: hidden;
   border-radius: $border-radius;
 
+  &:focus {
+    @include box-shadow-icon-focus;
+  }
+
   & img {
     object-fit: cover;
   }
