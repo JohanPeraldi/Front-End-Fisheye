@@ -7,14 +7,14 @@ function mediaFactory(media) {
   function getMediaCard(id) {
     if (image) {
       return `
-        <div class="image clickable" id="${id}">
+        <div class="image clickable" id="${id}" tabindex="0">
           <img src="${pathToImage}" alt="${title}">
         </div>
       `;
     }
     if (video) {
       return  `
-        <div class="image clickable" id="${id}">
+        <div class="image clickable" id="${id}" tabindex="0">
           <video controls>
             <source src="${pathToVideo}" type="video/mp4">
               Désolé, votre navigateur ne prend pas en charge ce type de média.
