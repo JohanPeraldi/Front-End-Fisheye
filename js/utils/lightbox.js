@@ -10,6 +10,10 @@ const nextImageIcon = document.querySelector('.lightbox__next');
 // The current photographer's media
 let mediaItems;
 
+// We need to store the current media id to be able to retrieve it
+// with handleClickOnPreviousImageIcon and handleClickOnNextImageIcon
+let currentMediaId;
+
 const fillLightbox = (media) => {
   mediaItems = media;
 
@@ -43,6 +47,8 @@ const displayMedia = (mediaId) => {
   lightboxDescriptionContainer.innerHTML = `
     <p>${imageAltText}</p>
   `;
+
+  return mediaId;
 };
 
 // Open lightbox
@@ -69,11 +75,12 @@ const closeLightbox = () => {
   contactButton.focus();
 }
 
-// Handle click event on media elements
+// Handle click event on gallery media elements
 const handleClickOnMedia = ($event) => {
   const clickedMediaId = $event.target.id;
   openLightbox(clickedMediaId);
   $event.stopPropagation();
+  currentMediaId = clickedMediaId;
 
   return clickedMediaId;
 };
@@ -100,13 +107,38 @@ const handleClickOnPreviousImageIcon = () => {
   console.log('Go to previous image');
   console.log(mediaItems);
   // Steps:
-  // 1. Find index of current image
-  // 2. Find id of previous image
+  // 1. Find index of current media
+  // 1.1 We need the id of the current media
+  console.log('Current media id: ' + currentMediaId); // logs the id of the current media
+  // 1.2 From there we can find the index of the current media
+  const indexOfCurrentMedia = mediaItems.indexOf(mediaItems.find(element => element.id === +currentMediaId));
+  console.log('Index of current media: ' + indexOfCurrentMedia); // logs the index of the current media
+  // 2. From there, find id of previous media, or last media if current media is first
+  // 2.1 From the index of the current media we can find the index of the previous media
+  // But we need to take into account the special case of the first media, for which the previous media will be the last media in the list
+  let indexOfPreviousMedia;
+  if (indexOfCurrentMedia === 0) {
+    indexOfPreviousMedia = mediaItems.length - 1;
+  } else {
+    indexOfPreviousMedia = indexOfCurrentMedia - 1;
+  }
+  console.log('Index of previous media: ' + indexOfPreviousMedia);
+  // 2.2 From the index of the previous media we can find the id of the previous media
+  const idOfPreviousMedia = mediaItems[indexOfPreviousMedia].id;
+  console.log('Id of previous media: ' + idOfPreviousMedia);
+  // 2.3 Now that we have that we want to display the media with that id inside the lightbox
+  displayMedia(idOfPreviousMedia);
+  // 2.4 We also need to change the id of the current media
+  currentMediaId = idOfPreviousMedia;
 };
 
 const handleClickOnNextImageIcon = () => {
   console.log('Go to next image');
   console.log(mediaItems);
+
+  // 1. Find index of current media
+
+  // 2. From there, find id of next media, or first media if current media is last
 };
 
 previousImageIcon.addEventListener('click', handleClickOnPreviousImageIcon);
