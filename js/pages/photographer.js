@@ -39,7 +39,7 @@ const activateModal = () => {
   // Close modal
   // 1. With mouse click
   closeModalIcon.addEventListener('click', () => closeModal());
-  // 2. With keyboard Escape or Enter keys
+  // 2. With keyboard Escape key
   closeModalIcon.addEventListener('keydown', event => {
     const key = event.key;
     if (key === 'Escape') {
