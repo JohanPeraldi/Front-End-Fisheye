@@ -61,7 +61,7 @@ const openLightbox = (mediaId) => {
   closeLightboxElement.focus();
 
   displayMedia(mediaId);
-}
+};
 
 // Close lightbox
 const closeLightbox = () => {
@@ -73,23 +73,28 @@ const closeLightbox = () => {
   // After closing the lightbox, the focus should be set on the Contact button
   const contactButton = document.getElementById('contact-button');
   contactButton.focus();
-}
+};
 
-// Handle click event on gallery media elements
-const handleClickOnMedia = ($event) => {
+// Handle gallery media selection
+const handleMediaSelection = ($event) => {
   const clickedMediaId = $event.target.id;
-  openLightbox(clickedMediaId);
-  $event.stopPropagation();
-  currentMediaId = clickedMediaId;
-
-  return clickedMediaId;
+  // We want to handle both click events and keydown events
+  // but, in case of keydown events, only when key is 'Enter'
+  if ($event.type === 'click' || $event.type === 'keydown' && $event.key === 'Enter') {
+    openLightbox(clickedMediaId);
+    $event.stopPropagation();
+    currentMediaId = clickedMediaId;
+  }
 };
 
 // We target the nearest common ancestor of all media elements
 const mediaCommonAncestor = document.querySelector('.photographer__portfolio-images');
 // We can then add an event listener on that element
 // instead of adding multiple event listeners on all media elements
-mediaCommonAncestor.addEventListener('click', handleClickOnMedia);
+// 1. Open lightbox on mouse click on media in gallery
+mediaCommonAncestor.addEventListener('click', handleMediaSelection);
+// 2. Open lightbox with keyboard
+mediaCommonAncestor.addEventListener('keydown', handleMediaSelection);
 
 // Activate close button
 // 1. Close on mouse click
@@ -97,7 +102,7 @@ closeLightboxElement.addEventListener('click', closeLightbox);
 // 2. Close on Escape or Enter key press
 closeLightboxElement.addEventListener('keydown', $event => {
   const key = $event.key;
-  if (key === 'Escape' || key === 'Enter') {
+  if (key === 'Escape') {
     closeLightbox();
   }
 });
