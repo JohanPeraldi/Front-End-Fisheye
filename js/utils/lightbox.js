@@ -126,7 +126,7 @@ const handleClickOnPreviousImageIcon = () => {
   // 2.2 From the index of the previous media we can find the id of the previous media
   const idOfPreviousMedia = mediaItems[indexOfPreviousMedia].id;
   console.log('Id of previous media: ' + idOfPreviousMedia);
-  // 2.3 Now that we have that we want to display the media with that id inside the lightbox
+  // 2.3 Now that we have that, we want to display the media with that id inside the lightbox
   displayMedia(idOfPreviousMedia);
   // 2.4 We also need to change the id of the current media
   currentMediaId = idOfPreviousMedia;
@@ -137,8 +137,28 @@ const handleClickOnNextImageIcon = () => {
   console.log(mediaItems);
 
   // 1. Find index of current media
-
+  // 1.1 We need the id of the current media
+  console.log('Current media id: ' + currentMediaId);
+  // 1.2 From there we can find the index of the current media
+  const indexOfCurrentMedia = mediaItems.indexOf(mediaItems.find(element => element.id === +currentMediaId));
+  console.log('Index of current media: ' + indexOfCurrentMedia);
   // 2. From there, find id of next media, or first media if current media is last
+  // 2.1 From the index of the current media we can find the index of the next media
+  // But we need to take into account the special case of the last media, for which the next media will be the first media in the list
+  let indexOfNextMedia;
+  if (indexOfCurrentMedia === mediaItems.length - 1) {
+    indexOfNextMedia = 0;
+  } else {
+    indexOfNextMedia = indexOfCurrentMedia + 1;
+  }
+  console.log('Index of next media: ' + indexOfNextMedia);
+  // 2.2 From the index of the next media we can find the id of the next media
+  const idOfNextMedia = mediaItems[indexOfNextMedia].id;
+  console.log('Id of next media: ' + idOfNextMedia);
+  // 2.3 Now that we have that, we want to display the media with that id inside the lightbox
+  displayMedia(idOfNextMedia);
+  // 2.4 We also need to change the id of the current media
+  currentMediaId = idOfNextMedia;
 };
 
 previousImageIcon.addEventListener('click', handleClickOnPreviousImageIcon);
