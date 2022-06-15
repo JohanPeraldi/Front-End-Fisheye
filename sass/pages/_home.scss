@@ -43,3 +43,21 @@
     }
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .photographer_section {
+    gap: 4rem;
+    margin-top: 6rem;
+
+    & article {
+      & h2 {
+        font-size: 2.6rem;
+      }
+
+      & img {
+        height: 16rem;
+        width: 16rem;
+      }
+    }
+  }
+}

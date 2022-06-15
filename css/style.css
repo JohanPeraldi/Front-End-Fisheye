@@ -353,6 +353,19 @@ form input:focus, form textarea:focus {
   margin-top: 0.4rem;
 }
 
+@media screen and (max-width: 1280px) {
+  .photographer_section {
+    gap: 4rem;
+    margin-top: 6rem;
+  }
+  .photographer_section article h2 {
+    font-size: 2.6rem;
+  }
+  .photographer_section article img {
+    height: 16rem;
+    width: 16rem;
+  }
+}
 .photographer__header {
   display: flex;
   align-items: center;
