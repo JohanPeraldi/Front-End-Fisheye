@@ -115,8 +115,13 @@ form input:focus, form textarea:focus {
   right: 3.6rem;
   max-width: 40rem;
 }
-.info-box svg {
+.info-box .likes {
+  display: flex;
+  align-items: center;
+}
+.info-box .likes img {
   margin-left: 1rem;
+  width: 1.1em;
 }
 
 #lightbox-modal {
@@ -415,7 +420,7 @@ form input:focus, form textarea:focus {
 }
 .image-description img {
   margin-left: 1rem;
-  height: 100%;
+  width: 1.1em;
   cursor: pointer;
 }
 
