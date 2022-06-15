@@ -52,3 +52,25 @@ form {
     box-shadow: inset 0 0 20px 0 $color-secondary;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  form {
+    & ul {
+      font-size: 2rem;
+    }
+
+    & li {
+      & + li {
+        margin-top: 1rem;
+      }
+    }
+
+    & input {
+      padding: 0.5rem;
+    }
+
+    & textarea {
+      padding: 0.5rem;
+    }
+  }
+}

@@ -2,3 +2,9 @@
   // Footer added to provide space at the bottom of the pages
   height: 20rem;
 }
+
+@media screen and (max-width: 1280px) {
+  .footer {
+    height: 10rem;
+  }
+}
