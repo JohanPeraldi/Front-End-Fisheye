@@ -115,13 +115,17 @@
       font-size: inherit;
     }
 
-    & span {
+    & p {
+      display: flex;
+      justify-content: flex-end;
       color: inherit;
       font-size: inherit;
     }
 
-    & svg {
+    & img {
       margin-left: 1rem;
+      height: 100%;
+      cursor: pointer;
     }
   }
 }

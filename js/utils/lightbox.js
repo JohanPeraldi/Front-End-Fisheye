@@ -77,14 +77,34 @@ const closeLightbox = () => {
 };
 
 // Handle gallery media selection
+// Here we have a problem after allowing the like icons to be clicked!
+// We want to deal with clicks on heart icons in a specific manner and
+// probably need to check where the click happens.
+// "handleMediaSelection" will probably not be an adequate name after
+// we make the necessary changes!
 const handleMediaSelection = ($event) => {
-  const clickedMediaId = $event.target.id;
-  // We want to handle both click events and keydown events
-  // but, in case of keydown events, only when key is 'Enter'
-  if ($event.type === 'click' || $event.type === 'keydown' && $event.key === 'Enter') {
-    openLightbox(clickedMediaId);
-    $event.stopPropagation();
-    currentMediaId = clickedMediaId;
+  // First, check what element was clicked
+  console.log($event);
+  console.log('$event.target.id: \n' + $event.target.id); // will only display the media id if the image was clicked,
+  // not the heart icon!
+  if ($event.target.localName === 'div') {
+    const clickedMediaId = $event.target.id;
+    // We want to handle both click events and keydown events
+    // but, in case of keydown events, only when key is 'Enter'
+    if ($event.type === 'click' || $event.type === 'keydown' && $event.key === 'Enter') {
+      openLightbox(clickedMediaId);
+      currentMediaId = clickedMediaId;
+    }
+  } else if ($event.target.localName === 'img') {
+    const mediaId = $event.path[3].firstElementChild.id;
+    if ($event.type === 'click') {
+      console.group('Like icon was clicked!');
+      console.log('You want to like image/video with id: ' + mediaId);
+      console.groupEnd();
+      // The problem is: we still need to get the id of the image that we want to like,
+      // but we do not have access to it inside here!
+    }
+  $event.stopPropagation();
   }
 };
 

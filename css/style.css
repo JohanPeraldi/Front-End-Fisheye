@@ -403,12 +403,16 @@ form input:focus, form textarea:focus {
   color: inherit;
   font-size: inherit;
 }
-.image-description span {
+.image-description p {
+  display: flex;
+  justify-content: flex-end;
   color: inherit;
   font-size: inherit;
 }
-.image-description svg {
+.image-description img {
   margin-left: 1rem;
+  height: 100%;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
