@@ -47,15 +47,17 @@
     margin: 0 10rem;
 
     &-images {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       justify-content: space-between;
+      grid-template-columns: 29% 29% 29%;
       row-gap: 5rem;
       column-gap: 10rem;
-    }
 
-    &-card {
-      flex: 0 1 28%;
+      & .image {
+        & img {
+          width: 100%;
+        }
+      }
     }
   }
 }
