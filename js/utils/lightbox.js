@@ -76,17 +76,12 @@ const closeLightbox = () => {
   // the contact form opens!
 };
 
-// Handle gallery media selection
-// Here we have a problem after allowing the like icons to be clicked!
-// We want to deal with clicks on heart icons in a specific manner and
-// probably need to check where the click happens.
-// "handleMediaSelection" will probably not be an adequate name after
-// we make the necessary changes!
-const handleMediaSelection = ($event) => {
+// Handle all events originating in the media gallery
+const handleImageGalleryEvents = ($event) => {
   // First, check what element was clicked
   console.log($event);
-  console.log('$event.target.id: \n' + $event.target.id); // will only display the media id if the image was clicked,
-  // not the heart icon!
+  console.log('$event.target.id: \n' + $event.target.id);
+  // Media selection events
   if ($event.target.localName === 'div') {
     const clickedMediaId = $event.target.id;
     // We want to handle both click events and keydown events
@@ -95,14 +90,14 @@ const handleMediaSelection = ($event) => {
       openLightbox(clickedMediaId);
       currentMediaId = clickedMediaId;
     }
-  } else if ($event.target.localName === 'img') {
+  }
+  // Media like events
+  else if ($event.target.localName === 'img') {
     const mediaId = $event.path[3].firstElementChild.id;
     if ($event.type === 'click') {
       console.group('Like icon was clicked!');
       console.log('You want to like image/video with id: ' + mediaId);
       console.groupEnd();
-      // The problem is: we still need to get the id of the image that we want to like,
-      // but we do not have access to it inside here!
     }
   $event.stopPropagation();
   }
@@ -113,9 +108,9 @@ const mediaCommonAncestor = document.querySelector('.photographer__portfolio-ima
 // We can then add an event listener on that element
 // instead of adding multiple event listeners on all media elements
 // 1. Open lightbox on mouse click on media in gallery
-mediaCommonAncestor.addEventListener('click', handleMediaSelection);
+mediaCommonAncestor.addEventListener('click', handleImageGalleryEvents);
 // 2. Open lightbox with keyboard
-mediaCommonAncestor.addEventListener('keydown', handleMediaSelection);
+mediaCommonAncestor.addEventListener('keydown', handleImageGalleryEvents);
 
 // Activate close button
 // 1. With mouse click
