@@ -244,6 +244,10 @@ form input:focus, form textarea:focus {
   display: block;
 }
 
+.footer {
+  height: 20rem;
+}
+
 .header {
   display: flex;
   flex-direction: row;
