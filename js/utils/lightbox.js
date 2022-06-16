@@ -93,7 +93,12 @@ const handleImageGalleryEvents = ($event) => {
   else if ($event.target.localName === 'img') {
     // The id of the media that was liked or unliked
     const mediaId = $event.composedPath()[3].firstElementChild.id;
+    // The initial number of likes of that media
     let numberOfLikes = +$event.composedPath()[1].childNodes[1].textContent;
+    // The DOM element displaying the total number of likes of a photographer
+    const totalLikesElement = document.querySelector('.info-box .likes span');
+    // The total number of likes
+    let totalPhotographerLikes = +totalLikesElement.textContent;
     if ($event.type === 'click' || $event.type === 'keydown' && $event.key === 'Enter') {
       console.group('Like icon was clicked!');
       console.log('You want to like image/video with id: ' + mediaId);
@@ -107,17 +112,21 @@ const handleImageGalleryEvents = ($event) => {
       const imageElement = document.getElementById('likes-' + mediaId);
       // Check whether span element has isLiked class
       if (spanElementClassList.contains('is-liked')) {
-        // If it has, increment likes
+        // If it has, increment likes and total likes
         numberOfLikes++;
+        totalPhotographerLikes++;
         // Change image src attribute to display full heart icon
         imageElement.src = likeFactory(true);
       } else {
-        // If it hasn't decrement likes
+        // If it hasn't decrement likes and total likes
         numberOfLikes--;
+        totalPhotographerLikes--;
         // Change image src attribute to display empty heart icon
         imageElement.src = likeFactory(false);
       }
+      // Update numbers in the UI
       likeSpanElement.textContent = numberOfLikes.toString();
+      totalLikesElement.textContent = totalPhotographerLikes.toString();
       console.log('New number of likes: ' + numberOfLikes);
     }
   $event.stopPropagation();
