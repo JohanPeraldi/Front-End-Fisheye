@@ -13,6 +13,15 @@ const updatePhotographerRate = (photographerRate) => {
   dailyRateElement.textContent = photographerRate + '€/jour';
 };
 
+const updatePhotographerLikes = (media) => {
+  // Target the DOM element where a photographer's likes is displayed
+  const photographerLikesElement = document.querySelector('.info-box .likes span');
+  let totalLikes = 0;
+  media.forEach(el => totalLikes += el.likes);
+  photographerLikesElement.textContent = totalLikes.toString();
+  return totalLikes;
+}
+
 const displayPhotographerData = (photographer) => {
   const main = document.getElementById('main');
   const photographerCard = photographerFactory(photographer, 'photographer').getPhotographerCard();
@@ -109,6 +118,7 @@ const getCurrentPhotographer = () => {
           currentPhotographerMedia.push(media);
         }
       });
+      updatePhotographerLikes(currentPhotographerMedia);
       displayPhotographerPortfolio(currentPhotographerMedia);
       fillLightbox(currentPhotographerMedia);
 
