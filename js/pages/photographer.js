@@ -131,7 +131,6 @@ const getCurrentPhotographer = () => {
 
 const init = async () => {
   getCurrentPhotographer();
-  return 'Photographer page initialized!';
 };
 
-init().then(r => console.log(r));
+init();

@@ -33,7 +33,6 @@ const init = async () => {
    */
   const {photographers} = await getPhotographers();
   await displayData(photographers);
-  return 'Homepage initialized!';
 };
 
-init().then(r => console.log(r));
+init();

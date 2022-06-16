@@ -100,10 +100,6 @@ const handleImageGalleryEvents = ($event) => {
     // The total number of likes
     let totalPhotographerLikes = +totalLikesElement.textContent;
     if ($event.type === 'click' || $event.type === 'keydown' && $event.key === 'Enter') {
-      console.group('Like icon was clicked!');
-      console.log('You want to like image/video with id: ' + mediaId);
-      console.log('Number of likes: ' + numberOfLikes);
-      console.groupEnd();
       // Target the span element used to display the number of likes
       const likeSpanElement = document.getElementById('likes-number-' + mediaId);
       const spanElementClassList = likeSpanElement.classList;
@@ -127,7 +123,6 @@ const handleImageGalleryEvents = ($event) => {
       // Update numbers in the UI
       likeSpanElement.textContent = numberOfLikes.toString();
       totalLikesElement.textContent = totalPhotographerLikes.toString();
-      console.log('New number of likes: ' + numberOfLikes);
     }
   $event.stopPropagation();
   }
