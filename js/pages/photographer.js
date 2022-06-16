@@ -74,8 +74,8 @@ const displayPhotographerPortfolio = (media) => {
     mediaDescriptionElement.innerHTML = `
       <h2>${media.title}</h2>
       <p>
-        <span id="likes-${media.id}">${media.likes}</span>
-        <img src="./assets/icons/heart-full.svg" class="clickable" alt="likes" tabindex="0">
+        <span id="likes-number-${media.id}">${media.likes}</span>
+        <img src="./assets/icons/heart-empty.svg" id="likes-${media.id}" class="clickable" alt="likes" tabindex="0">
       </p>
     `;
     // Add it to the media card

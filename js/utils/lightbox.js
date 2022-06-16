@@ -99,16 +99,23 @@ const handleImageGalleryEvents = ($event) => {
       console.log('You want to like image/video with id: ' + mediaId);
       console.log('Number of likes: ' + numberOfLikes);
       console.groupEnd();
-      const likeSpanElement = document.getElementById('likes-' + mediaId);
+      // Target the span element used to display the number of likes
+      const likeSpanElement = document.getElementById('likes-number-' + mediaId);
       const spanElementClassList = likeSpanElement.classList;
-      spanElementClassList.toggle('isLiked');
+      spanElementClassList.toggle('is-liked');
+      // Target the img element
+      const imageElement = document.getElementById('likes-' + mediaId);
       // Check whether span element has isLiked class
-      if (spanElementClassList.contains('isLiked')) {
+      if (spanElementClassList.contains('is-liked')) {
         // If it has, increment likes
         numberOfLikes++;
+        // Change image src attribute to display full heart icon
+        imageElement.src = likeFactory(true);
       } else {
         // If it hasn't decrement likes
         numberOfLikes--;
+        // Change image src attribute to display empty heart icon
+        imageElement.src = likeFactory(false);
       }
       likeSpanElement.textContent = numberOfLikes.toString();
       console.log('New number of likes: ' + numberOfLikes);
