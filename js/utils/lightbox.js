@@ -92,8 +92,8 @@ const handleImageGalleryEvents = ($event) => {
   // Media like events
   else if ($event.target.localName === 'img') {
     // The id of the media that was liked or unliked
-    const mediaId = $event.path[3].firstElementChild.id;
-    let numberOfLikes = +$event.path[1].childNodes[1].textContent;
+    const mediaId = $event.composedPath()[3].firstElementChild.id;
+    let numberOfLikes = +$event.composedPath()[1].childNodes[1].textContent;
     if ($event.type === 'click' || $event.type === 'keydown' && $event.key === 'Enter') {
       console.group('Like icon was clicked!');
       console.log('You want to like image/video with id: ' + mediaId);
