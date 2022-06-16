@@ -91,6 +91,7 @@ const handleImageGalleryEvents = ($event) => {
   }
   // Media like events
   else if ($event.target.localName === 'img') {
+    // The id of the media that was liked or unliked
     const mediaId = $event.path[3].firstElementChild.id;
     let numberOfLikes = +$event.path[1].childNodes[1].textContent;
     if ($event.type === 'click' || $event.type === 'keydown' && $event.key === 'Enter') {
@@ -98,8 +99,17 @@ const handleImageGalleryEvents = ($event) => {
       console.log('You want to like image/video with id: ' + mediaId);
       console.log('Number of likes: ' + numberOfLikes);
       console.groupEnd();
-      numberOfLikes++;
       const likeSpanElement = document.getElementById('likes-' + mediaId);
+      const spanElementClassList = likeSpanElement.classList;
+      spanElementClassList.toggle('isLiked');
+      // Check whether span element has isLiked class
+      if (spanElementClassList.contains('isLiked')) {
+        // If it has, increment likes
+        numberOfLikes++;
+      } else {
+        // If it hasn't decrement likes
+        numberOfLikes--;
+      }
       likeSpanElement.textContent = numberOfLikes.toString();
       console.log('New number of likes: ' + numberOfLikes);
     }
