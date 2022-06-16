@@ -74,7 +74,7 @@ const displayPhotographerPortfolio = (media) => {
     mediaDescriptionElement.innerHTML = `
       <h2>${media.title}</h2>
       <p>
-        <span>${media.likes}</span>
+        <span id="likes-${media.id}">${media.likes}</span>
         <img src="./assets/icons/heart-full.svg" class="clickable" alt="likes" tabindex="0">
       </p>
     `;

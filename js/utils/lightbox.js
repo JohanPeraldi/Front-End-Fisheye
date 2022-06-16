@@ -92,10 +92,16 @@ const handleImageGalleryEvents = ($event) => {
   // Media like events
   else if ($event.target.localName === 'img') {
     const mediaId = $event.path[3].firstElementChild.id;
-    if ($event.type === 'click') {
+    let numberOfLikes = +$event.path[1].childNodes[1].textContent;
+    if ($event.type === 'click' || $event.type === 'keydown' && $event.key === 'Enter') {
       console.group('Like icon was clicked!');
       console.log('You want to like image/video with id: ' + mediaId);
+      console.log('Number of likes: ' + numberOfLikes);
       console.groupEnd();
+      numberOfLikes++;
+      const likeSpanElement = document.getElementById('likes-' + mediaId);
+      likeSpanElement.textContent = numberOfLikes.toString();
+      console.log('New number of likes: ' + numberOfLikes);
     }
   $event.stopPropagation();
   }
