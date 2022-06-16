@@ -79,8 +79,6 @@ const closeLightbox = () => {
 // Handle all events originating in the media gallery
 const handleImageGalleryEvents = ($event) => {
   // First, check what element was clicked
-  console.log($event);
-  console.log('$event.target.id: \n' + $event.target.id);
   // Media selection events
   if ($event.target.localName === 'div') {
     const clickedMediaId = $event.target.id;
