@@ -121,6 +121,7 @@ const getCurrentPhotographer = () => {
       updatePhotographerLikes(currentPhotographerMedia);
       displayPhotographerPortfolio(currentPhotographerMedia);
       fillLightbox(currentPhotographerMedia);
+      getCheckedRadioElement();
 
       return {currentPhotographer, currentPhotographerMedia};
   })

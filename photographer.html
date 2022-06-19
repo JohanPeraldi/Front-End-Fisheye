@@ -22,7 +22,7 @@
 			    <article class="photographer__portfolio">
 				    <div class="drop-down-section-wrapper">
 					    <p>Trier par</p>
-					    <div class="drop-down clickable" tabindex="0">
+					    <form class="drop-down clickable" id="drop-down" tabindex="0">
 						    <input type="radio" name="sort" class="input" id="popularity" checked>
 						    <label for="popularity" class="option clickable">
 							    <span class="short-border"></span>
@@ -38,7 +38,7 @@
 							    <span class="short-border"></span>
 							    <span>Titre</span>
 						    </label>
-					    </div>
+					    </form>
 				    </div>
 				    <div class="photographer__portfolio-images"></div>
 			    </article>
@@ -113,6 +113,7 @@
     <script src="./js/factories/photographerFactory.js"></script>
     <script src="./js/pages/photographer.js"></script>
     <script src="./js/utils/modal.js"></script>
+    <script src="./js/utils/sort.js"></script>
     <script src="./js/utils/contactForm.js"></script>
     <script src="./js/utils/lightboxNavigation.js"></script>
     <script src="./js/utils/lightbox.js"></script>
