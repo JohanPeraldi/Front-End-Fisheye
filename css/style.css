@@ -104,7 +104,6 @@ h1 {
   padding: 2rem;
   background-color: #901c1c;
   color: white;
-  border-top: 1px solid white;
   font-size: 1.8rem;
   font-weight: 700;
   pointer-events: none;
@@ -124,6 +123,8 @@ h1 {
   order: 1;
   z-index: 2;
   background: #901c1c;
+}
+.input:checked + .option .short-border {
   border-top: none;
 }
 .input:checked + .option:before {
@@ -145,6 +146,14 @@ h1 {
   right: 16px;
   pointer-events: none;
   z-index: 3;
+}
+
+.short-border {
+  position: absolute;
+  border-top: 1px solid white;
+  top: 0;
+  left: 6%;
+  right: 6%;
 }
 
 form {
