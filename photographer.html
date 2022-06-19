@@ -7,7 +7,7 @@
 	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="./css/style.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -20,13 +20,16 @@
 		    </header>
 		    <main id="main">
 			    <article class="photographer__portfolio">
-				    <div class="drop-down">
-					    <label for="photograph-sort">Trier par</label>
-					    <select name="sort" class="clickable" id="photograph-sort">
-						    <option value="popularity">Popularité</option>
-						    <option value="date">Date</option>
-						    <option value="title">Titre</option>
-					    </select>
+				    <div class="drop-down-section-wrapper">
+					    <p>Trier par</p>
+					    <div class="drop-down clickable" tabindex="0">
+						    <input type="radio" name="sort" class="input" id="popularity" checked>
+						    <label for="popularity" class="option clickable">Popularité</label>
+						    <input type="radio" name="sort" class="input" id="date">
+						    <label for="date" class="option clickable">Date</label>
+						    <input type="radio" name="sort" class="input" id="title">
+						    <label for="title" class="option clickable">Titre</label>
+					    </div>
 				    </div>
 				    <div class="photographer__portfolio-images"></div>
 			    </article>

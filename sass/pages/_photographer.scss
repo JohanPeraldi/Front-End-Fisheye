@@ -46,6 +46,11 @@
     flex-direction: column;
     margin: 0 10rem;
 
+    & div > p {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
     &-images {
       display: grid;
       justify-content: space-between;
@@ -59,31 +64,6 @@
         }
       }
     }
-  }
-}
-
-.drop-down {
-  margin: 2rem 0 5rem;
-
-  & label {
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-
-  & select {
-    margin-left: 2rem;
-    padding: 1rem;
-    background-color: $color-primary;
-    color: white;
-    border-radius: $border-radius;
-    font-family: inherit;
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-
-  & option {
-    background-color: $color-primary;
-    color: white;
   }
 }
 

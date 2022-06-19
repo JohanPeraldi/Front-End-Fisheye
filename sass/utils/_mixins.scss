@@ -9,3 +9,9 @@
   outline: 2px solid $color-primary;
   box-shadow: 0 0 16px 12px $color-primary;
 }
+
+@mixin button-focus {
+  outline: 2px solid black;
+  background-color: $color-secondary-light;
+  color: black;
+}
