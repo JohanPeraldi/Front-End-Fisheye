@@ -69,6 +69,10 @@ h1 {
   position: relative;
   pointer-events: all;
 }
+.drop-down:focus .input:checked + .option:after {
+  transform: rotate(180deg);
+  transform-origin: center;
+}
 .drop-down-section-wrapper {
   display: flex;
   margin: 2rem 0;
@@ -117,15 +121,14 @@ h1 {
   background: #901c1c;
 }
 .input:checked + .option:after {
+  background-image: url("../assets/icons/dropdown-arrow.svg");
+  background-repeat: no-repeat;
   position: absolute;
   content: "";
-  width: 0;
-  height: 0;
-  top: 45%;
-  right: 20px;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid white;
+  width: 16px;
+  height: 10px;
+  top: 44%;
+  right: 16px;
   pointer-events: none;
   z-index: 3;
 }
