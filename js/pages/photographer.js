@@ -70,6 +70,10 @@ const getPhotographers = () => {
 
 const displayPhotographerPortfolio = (media) => {
   const photographerPortfolioElement = document.querySelector('.photographer__portfolio-images');
+  // We need to make sure that element is empty before adding any media to it
+  // otherwise, when rerendering (after sorting) media will stack up
+  // on top of previous gallery
+  photographerPortfolioElement.innerHTML = '';
 
   media.forEach((media) => {
     // Get the adequate media card (image or video) from the factory
@@ -119,15 +123,24 @@ const getCurrentPhotographer = () => {
         }
       });
       updatePhotographerLikes(currentPhotographerMedia);
-      displayPhotographerPortfolio(currentPhotographerMedia);
-      fillLightbox(currentPhotographerMedia);
-      getCheckedRadioElement();
+      /**
+       * An array containing the current photographer's media,
+       * sorted according to the selected method (popularity, date or title)
+       * @type {Array}
+       */
+      const sortedMediaItems = sortMediaItems(currentPhotographerMedia);
+      renderGallery(sortedMediaItems);
 
-      return {currentPhotographer, currentPhotographerMedia};
+      return {currentPhotographer, sortedMediaItems};
   })
     .catch((error) => {
       console.log(error);
     })
+};
+
+const renderGallery = (media) => {
+  displayPhotographerPortfolio(media);
+  fillLightbox(media);
 };
 
 const init = async () => {
