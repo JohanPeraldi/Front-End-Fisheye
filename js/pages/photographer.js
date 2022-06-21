@@ -125,7 +125,8 @@ const getCurrentPhotographer = () => {
       updatePhotographerLikes(currentPhotographerMedia);
       /**
        * An array containing the current photographer's media,
-       * sorted according to the selected method (popularity, date or title)
+       * sorted according to the selected method ('popularity', 'date' or 'title'),
+       * 'popularity' being the default (page loads with media sorted by popularity)
        * @type {Array}
        */
       const sortedMediaItems = sortMediaItems(currentPhotographerMedia);
@@ -138,6 +139,12 @@ const getCurrentPhotographer = () => {
     })
 };
 
+/**
+ * A function that takes an Array of media objects as an argument
+ * and calls the functions that will display the media where they are needed
+ * @type {function}
+ * @param media An array of media objects
+ */
 const renderGallery = (media) => {
   displayPhotographerPortfolio(media);
   fillLightbox(media);

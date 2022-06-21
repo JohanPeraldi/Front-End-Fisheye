@@ -21,34 +21,40 @@ const getCheckedRadioElement = () => {
 
 formElement.addEventListener('change', () => {
   getCheckedRadioElement();
+  // We need to call a function that will reorder the media displayed
+  // in the gallery according to the radio input that is checked
 });
 
 // A function to sort the media items
 const sortMediaItems = (mediaItems) => {
+  // Which sorting method should be applied ('popularity', 'date' or 'title')
+  const sortingMethod = getCheckedRadioElement();
   let sorted;
   // By popularity (default, from most popular to least popular
   // and, in case of several media with the same number of likes,
   // from most recent to least recent and, in case of another equality,
   // in alphabetical order)
-  if (getCheckedRadioElement() === 'popularity') {
+  if (sortingMethod === 'popularity') {
     sorted = mediaItems.sort((a, b) => (a.likes < b.likes) ? 1 : (a.likes === b.likes) ? ((a.date < b.date) ? 1 : (a.date === b.date) ? ((a.title > b.title) ? 1 : -1) : -1) : -1);
   }
   // By date (from most recent to least recent and, in case of several
   // media with the same date, from most popular to least popular and,
   // in case of another equality, in alphabetical order)
-  else if (getCheckedRadioElement() === 'date') {
+  else if (sortingMethod === 'date') {
     sorted = mediaItems.sort((a, b) => (a.date < b.date) ? 1 : (a.date === b.date) ? ((a.likes < b.likes) ? 1 : (a.likes === b.likes) ? ((a.title > b.title) ? 1 : -1) : -1) : -1);
   }
   // By title (alphabetical order and, in case of several media with the same title,
   // from most recent to least recent and, in case of another equality, from most
   // popular to least popular)
-  else if (getCheckedRadioElement() === 'title') {
+  else if (sortingMethod === 'title') {
     sorted = mediaItems.sort((a, b) => (a.title > b.title) ? 1 : (a.title === b.title) ? ((a.date < b.date) ? 1 : (a.date === b.date) ? ((a.likes < b.likes) ? 1 : -1) : -1) : -1);
   } else {
+    // Is an else block necessary at all?
+    // Under which circumstances would that code execute?
     sorted = mediaItems;
   }
   console.log(sorted);
-  displayPhotographerPortfolio(sorted);
+  renderGallery(sorted);
 
   return sorted;
 };
