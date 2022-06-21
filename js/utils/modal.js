@@ -11,7 +11,7 @@ const displayModal = () => {
   modal.style.display = 'block';
   modal.setAttribute('aria-hidden', 'false');
   closeButtonElement.focus();
-}
+};
 
 // Close modal
 const closeModal = () => {
@@ -19,4 +19,4 @@ const closeModal = () => {
   contentWrapperElement.setAttribute('aria-hidden', 'false');
   modal.style.display = 'none';
   modal.setAttribute('aria-hidden', 'true');
-}
+};

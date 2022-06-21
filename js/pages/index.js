@@ -18,7 +18,7 @@ const getPhotographers = () => {
 const displayData = (photographers) => {
   const photographerSection = document.querySelector('.photographer_section');
 
-  photographers.forEach(photographer => {
+  photographers.forEach((photographer) => {
     // Get the adequate photographer card from the factory
     const photographerCard = photographerFactory(photographer, 'home').getPhotographerCard();
     photographerSection.appendChild(photographerCard);
@@ -31,7 +31,7 @@ const init = async () => {
    * @constant
    * @type {Array}
    */
-  const {photographers} = await getPhotographers();
+  const { photographers } = await getPhotographers();
   await displayData(photographers);
 };
 

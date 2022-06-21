@@ -4,7 +4,6 @@ function likeFactory(isLiked) {
 
   if (isLiked) {
     return likeIconSrc;
-  } else {
-    return dislikeIconSrc;
   }
+  return dislikeIconSrc;
 }
