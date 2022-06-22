@@ -5,22 +5,24 @@ const getPhotographerId = () => {
 
 const updatePageTitle = (photographerName) => {
   const pageTitleElement = document.querySelector('title');
-  pageTitleElement.textContent = 'Fisheye - ' + photographerName;
+  pageTitleElement.textContent = `Fisheye - ${photographerName}`;
 };
 
 const updatePhotographerRate = (photographerRate) => {
   const dailyRateElement = document.querySelector('.rate');
-  dailyRateElement.textContent = photographerRate + '€/jour';
+  dailyRateElement.textContent = `${photographerRate}€/jour`;
 };
 
 const updatePhotographerLikes = (media) => {
   // Target the DOM element where a photographer's likes is displayed
   const photographerLikesElement = document.querySelector('.info-box .likes span');
   let totalLikes = 0;
-  media.forEach(el => totalLikes += el.likes);
+  media.forEach((el) => {
+    totalLikes += el.likes;
+  });
   photographerLikesElement.textContent = totalLikes.toString();
   return totalLikes;
-}
+};
 
 const displayPhotographerData = (photographer) => {
   const main = document.getElementById('main');
@@ -49,13 +51,13 @@ const activateModal = () => {
   // 1. With mouse click
   closeModalIcon.addEventListener('click', () => closeModal());
   // 2. With keyboard Escape key
-  closeModalIcon.addEventListener('keydown', event => {
-    const key = event.key;
+  closeModalIcon.addEventListener('keydown', (event) => {
+    const { key } = event;
     if (key === 'Escape') {
       closeModal();
       contactButton.focus();
     }
-  })
+  });
 };
 
 const getPhotographers = () => {
@@ -75,9 +77,9 @@ const displayPhotographerPortfolio = (media) => {
   // on top of previous gallery
   photographerPortfolioElement.innerHTML = '';
 
-  media.forEach((media) => {
+  media.forEach((item) => {
     // Get the adequate media card (image or video) from the factory
-    const mediaCardContents = mediaFactory(media).getMediaCard(media.id);
+    const mediaCardContents = mediaFactory(item).getMediaCard(item.id);
     const mediaCard = document.createElement('div');
     mediaCard.setAttribute('class', 'photographer__portfolio-card');
     mediaCard.innerHTML = mediaCardContents;
@@ -85,10 +87,10 @@ const displayPhotographerPortfolio = (media) => {
     const mediaDescriptionElement = document.createElement('div');
     mediaDescriptionElement.setAttribute('class', 'image-description');
     mediaDescriptionElement.innerHTML = `
-      <h2>${media.title}</h2>
+      <h2>${item.title}</h2>
       <p>
-        <span id="likes-number-${media.id}">${media.likes}</span>
-        <img src="./assets/icons/heart-empty.svg" id="likes-${media.id}" class="clickable" alt="likes" tabindex="0">
+        <span id="likes-number-${item.id}">${item.likes}</span>
+        <img src="./assets/icons/heart-empty.svg" id="likes-${item.id}" class="clickable" alt="likes" tabindex="0">
       </p>
     `;
     // Add it to the media card
@@ -105,7 +107,8 @@ const getCurrentPhotographer = () => {
        * An object containing the current photographer's data
        * @type {Object}
        */
-      const currentPhotographer = response.photographers.find(photographer => photographer.id === getPhotographerId());
+      const currentPhotographer = response.photographers
+        .find((photographer) => photographer.id === getPhotographerId());
       updatePageTitle(currentPhotographer.name);
       updatePhotographerRate(currentPhotographer.price);
       displayPhotographerData(currentPhotographer);
@@ -117,7 +120,7 @@ const getCurrentPhotographer = () => {
        * @type {Array}
        */
       const currentPhotographerMedia = [];
-      response.media.forEach(media => {
+      response.media.forEach((media) => {
         if (media.photographerId === getPhotographerId()) {
           currentPhotographerMedia.push(media);
         }
@@ -132,11 +135,9 @@ const getCurrentPhotographer = () => {
       const sortedMediaItems = sortMediaItems(currentPhotographerMedia);
       renderGallery(sortedMediaItems);
 
-      return {currentPhotographer, sortedMediaItems};
-  })
-    .catch((error) => {
-      console.log(error);
+      return { currentPhotographer, currentPhotographerMedia };
     })
+    .catch((error) => error);
 };
 
 /**

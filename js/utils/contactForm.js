@@ -25,7 +25,7 @@ const userInput = [
   {
     name: 'Message',
     text: null,
-  }
+  },
 ];
 const saveUserInput = (elements) => {
   elements.forEach((element, index) => element.addEventListener('blur', ($event) => {

@@ -1,20 +1,23 @@
 function mediaFactory(media) {
-  const {id, photographerId, title, image, video, likes, date, price} = media;
+  const {
+    id, photographerId, title, image, video, likes, date, price,
+  } = media;
 
   const pathToImage = `./assets/images/${photographerId}/${image}`;
   const pathToVideo = `./assets/videos/${photographerId}/${video}`;
 
-  function getMediaCard(id) {
+  function getMediaCard(mediaId) {
+    let mediaCard;
     if (image) {
-      return `
-        <div class="image clickable" id="${id}" tabindex="0">
+      mediaCard = `
+        <div class="image clickable" id="${mediaId}" tabindex="0">
           <img src="${pathToImage}" alt="${title}">
         </div>
       `;
     }
     if (video) {
-      return  `
-        <div class="image clickable" id="${id}" tabindex="0">
+      mediaCard = `
+        <div class="image clickable" id="${mediaId}" tabindex="0">
           <video controls>
             <source src="${pathToVideo}" type="video/mp4">
               Désolé, votre navigateur ne prend pas en charge ce type de média.
@@ -22,7 +25,11 @@ function mediaFactory(media) {
         </div>
       `;
     }
+
+    return mediaCard;
   }
 
-  return {id, photographerId, title, image, video, likes, date, price, getMediaCard};
+  return {
+    id, photographerId, title, image, video, likes, date, price, getMediaCard,
+  };
 }
