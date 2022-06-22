@@ -20,26 +20,26 @@
 		    </header>
 		    <main id="main">
 			    <article class="photographer__portfolio">
-				    <div class="drop-down-section-wrapper">
-					    <p>Trier par</p>
-					    <form class="drop-down clickable" id="drop-down" tabindex="0">
-						    <input type="radio" name="sort" class="input" id="popularity" checked>
+				    <form class="drop-down-section-wrapper">
+					    <fieldset class="drop-down clickable" id="drop-down" role="radiogroup" aria-haspopup="true" aria-expanded="false" tabindex="0">
+					      <legend class="legend">Trier par</legend>
+						    <input type="radio" name="sort" class="input" id="popularity" role="menuitemradio" aria-labelledby="popularity" checked>
 						    <label for="popularity" class="option clickable">
 							    <span class="short-border"></span>
 							    <span>Popularité</span>
 						    </label>
-						    <input type="radio" name="sort" class="input" id="date">
+						    <input type="radio" name="sort" class="input" id="date" role="menuitemradio" aria-labelledby="date">
 						    <label for="date" class="option clickable">
 							    <span class="short-border"></span>
 							    <span>Date</span>
 						    </label>
-						    <input type="radio" name="sort" class="input" id="title">
+						    <input type="radio" name="sort" class="input" id="title" role="menuitemradio" aria-labelledby="title">
 						    <label for="title" class="option clickable">
 							    <span class="short-border"></span>
 							    <span>Titre</span>
 						    </label>
-					    </form>
-				    </div>
+					    </fieldset>
+				    </form>
 				    <div class="photographer__portfolio-images"></div>
 			    </article>
 			    <div class="info-box">

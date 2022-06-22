@@ -46,11 +46,6 @@
     flex-direction: column;
     margin: 0 10rem;
 
-    & div > p {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
     &-images {
       display: grid;
       justify-content: space-between;
@@ -144,10 +139,6 @@
 
   .drop-down {
     & label {
-      font-size: 1.5rem;
-    }
-
-    & select {
       font-size: 1.5rem;
     }
   }

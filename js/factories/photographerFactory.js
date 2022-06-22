@@ -10,7 +10,7 @@ function photographerFactory(data, page) {
     if (page === 'home') {
       article.innerHTML = `
         <a href="./photographer.html?id=${id}" class="clickable" aria-label="${name}">
-          <img src="${pathToProfilePicture}" alt="${name}">
+          <img src="${pathToProfilePicture}" alt="">
           <h2>${name}</h2>
         </a>
         <p class="photographer__location">${city}, ${country}</p>

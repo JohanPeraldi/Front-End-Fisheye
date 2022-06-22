@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-left: 2rem;
+  left: 10rem;
+  top: -3rem;
   width: 17rem;
   height: 7rem;
+  border: none;
   cursor: pointer;
 
   &:not(:focus) {
@@ -14,6 +16,10 @@
   }
 
   &:focus {
+    /* Hide ugly default outline
+     * Focus is made clear by menu popup */
+    outline: none;
+
     & .option {
       position: relative;
       pointer-events: all;
@@ -57,9 +63,16 @@
   }
 
   &-section-wrapper {
-    display: flex;
     margin: 2rem 0;
   }
+}
+
+.legend {
+  position: relative;
+  left: -10rem;
+  top: 3rem;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .option {
@@ -73,8 +86,7 @@
   padding: 2rem;
   background-color: $color-primary;
   color: white;
-  //border-top: 1px solid white;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   pointer-events: none;
   z-index: 1;

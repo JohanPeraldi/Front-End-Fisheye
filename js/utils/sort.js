@@ -91,9 +91,6 @@ const sortMediaItems = (mediaItems) => {
     // Fallback in case anything goes wrong
     sorted = mediaItems;
   }
-  console.group('From sortMediaItems');
-  console.log(`Media should be sorted by ${sortingMethod}`);
-  console.log(sorted);
   displayPhotographerPortfolio(sorted);
 
   return sorted;
