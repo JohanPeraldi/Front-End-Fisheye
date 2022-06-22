@@ -13,16 +13,16 @@ const titleInputElement = document.getElementById('title');
  */
 const getCheckedRadioElement = () => {
   const radioInputElements = [popularityInputElement, dateInputElement, titleInputElement];
-  const checkedItem = radioInputElements.find(item => item.checked);
-  console.log('Media should be sorted by ' + checkedItem.id);
+  const checkedItem = radioInputElements.find((item) => item.checked);
+  console.log(`Media should be sorted by ${checkedItem.id}`);
 
   return checkedItem.id;
 };
 
 formElement.addEventListener('change', () => {
   getCheckedRadioElement();
-  // We need to call a function that will reorder the media displayed
-  // in the gallery according to the radio input that is checked
+  /* We need to call a function that will reorder the media displayed
+   * in the gallery according to the radio input that is checked */
 });
 
 // A function to sort the media items
@@ -30,27 +30,75 @@ const sortMediaItems = (mediaItems) => {
   // Which sorting method should be applied ('popularity', 'date' or 'title')
   const sortingMethod = getCheckedRadioElement();
   let sorted;
-  // By popularity (default, from most popular to least popular
-  // and, in case of several media with the same number of likes,
-  // from most recent to least recent and, in case of another equality,
-  // in alphabetical order)
+  /* By popularity (default, from most popular to least popular and,
+   * in case of several media with the same number of likes,
+   * from most recent to least recent and, in case of another equality,
+   * in alphabetical order) */
   if (sortingMethod === 'popularity') {
-    sorted = mediaItems.sort((a, b) => (a.likes < b.likes) ? 1 : (a.likes === b.likes) ? ((a.date < b.date) ? 1 : (a.date === b.date) ? ((a.title > b.title) ? 1 : -1) : -1) : -1);
-  }
-  // By date (from most recent to least recent and, in case of several
-  // media with the same date, from most popular to least popular and,
-  // in case of another equality, in alphabetical order)
-  else if (sortingMethod === 'date') {
-    sorted = mediaItems.sort((a, b) => (a.date < b.date) ? 1 : (a.date === b.date) ? ((a.likes < b.likes) ? 1 : (a.likes === b.likes) ? ((a.title > b.title) ? 1 : -1) : -1) : -1);
-  }
-  // By title (alphabetical order and, in case of several media with the same title,
-  // from most recent to least recent and, in case of another equality, from most
-  // popular to least popular)
-  else if (sortingMethod === 'title') {
-    sorted = mediaItems.sort((a, b) => (a.title > b.title) ? 1 : (a.title === b.title) ? ((a.date < b.date) ? 1 : (a.date === b.date) ? ((a.likes < b.likes) ? 1 : -1) : -1) : -1);
+    sorted = mediaItems.sort((a, b) => {
+      if (a.likes < b.likes) {
+        return 1;
+      }
+      if (a.likes === b.likes) {
+        if (a.date < b.date) {
+          return 1;
+        }
+        if (a.date === b.date) {
+          if (a.title > b.title) {
+            return 1;
+          }
+          return -1;
+        }
+        return -1;
+      }
+      return -1;
+    });
+  } else if (sortingMethod === 'date') {
+    /* By date (from most recent to least recent and, in case of several
+     * media with the same date, from most popular to least popular and,
+     * in case of another equality, in alphabetical order) */
+    sorted = mediaItems.sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      }
+      if (a.date === b.date) {
+        if (a.likes < b.likes) {
+          return 1;
+        }
+        if (a.likes === b.likes) {
+          if (a.title > b.title) {
+            return 1;
+          }
+          return -1;
+        }
+        return -1;
+      }
+      return -1;
+    });
+  } else if (sortingMethod === 'title') {
+    /* By title (alphabetical order and, in case of several media with the same title,
+     * from most recent to least recent and, in case of another equality,
+     * from most popular to least popular) */
+    sorted = mediaItems.sort((a, b) => {
+      if (a.title > b.title) {
+        return 1;
+      }
+      if (a.title === b.title) {
+        if (a.date < b.date) {
+          return 1;
+        }
+        if (a.date === b.date) {
+          if (a.likes < b.likes) {
+            return 1;
+          }
+          return -1;
+        }
+        return -1;
+      }
+      return -1;
+    });
   } else {
-    // Is an else block necessary at all?
-    // Under which circumstances would that code execute?
+    // Fallback in case anything goes wrong
     sorted = mediaItems;
   }
   console.log(sorted);
