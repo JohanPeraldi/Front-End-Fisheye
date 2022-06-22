@@ -1,6 +1,3 @@
-// Target the form element containing the radio inputs
-const formElement = document.getElementById('drop-down');
-
 // Target all three radio input elements
 const popularityInputElement = document.getElementById('popularity');
 const dateInputElement = document.getElementById('date');
@@ -14,16 +11,9 @@ const titleInputElement = document.getElementById('title');
 const getCheckedRadioElement = () => {
   const radioInputElements = [popularityInputElement, dateInputElement, titleInputElement];
   const checkedItem = radioInputElements.find((item) => item.checked);
-  console.log(`Media should be sorted by ${checkedItem.id}`);
 
   return checkedItem.id;
 };
-
-formElement.addEventListener('change', () => {
-  getCheckedRadioElement();
-  /* We need to call a function that will reorder the media displayed
-   * in the gallery according to the radio input that is checked */
-});
 
 // A function to sort the media items
 const sortMediaItems = (mediaItems) => {
@@ -101,8 +91,10 @@ const sortMediaItems = (mediaItems) => {
     // Fallback in case anything goes wrong
     sorted = mediaItems;
   }
+  console.group('From sortMediaItems');
+  console.log(`Media should be sorted by ${sortingMethod}`);
   console.log(sorted);
-  renderGallery(sorted);
+  displayPhotographerPortfolio(sorted);
 
   return sorted;
 };

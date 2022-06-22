@@ -100,17 +100,6 @@ const displayPhotographerPortfolio = (media) => {
   });
 };
 
-/**
- * A function that takes an Array of media objects as an argument
- * and calls the functions that will display the media where they are needed
- * @type {function}
- * @param media An array of media objects
- */
-const renderGallery = (media) => {
-  displayPhotographerPortfolio(media);
-  fillLightbox(media);
-};
-
 const getCurrentPhotographer = () => {
   getPhotographers()
     .then((response) => {
@@ -144,7 +133,8 @@ const getCurrentPhotographer = () => {
        * @type {Array}
        */
       const sortedMediaItems = sortMediaItems(currentPhotographerMedia);
-      renderGallery(sortedMediaItems);
+      displayPhotographerPortfolio(sortedMediaItems);
+      fillLightbox(sortedMediaItems);
 
       return { currentPhotographer, currentPhotographerMedia };
     })
