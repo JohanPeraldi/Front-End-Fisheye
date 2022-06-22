@@ -127,9 +127,7 @@ const getCurrentPhotographer = () => {
 
       return { currentPhotographer, currentPhotographerMedia };
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => error);
 };
 
 const init = async () => {
