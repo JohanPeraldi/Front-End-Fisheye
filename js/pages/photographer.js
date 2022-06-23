@@ -40,6 +40,7 @@ const activateModal = () => {
   // Target DOM elements
   const contactButton = document.getElementById('contact-button');
   const closeModalIcon = document.getElementById('close-modal');
+  const contactModal = document.getElementById('contact-modal');
 
   // Set focus on contactButton
   contactButton.focus();
@@ -48,10 +49,10 @@ const activateModal = () => {
   contactButton.addEventListener('click', () => displayModal());
 
   // Close modal
-  // 1. With mouse click
+  // 1. With mouse click (on "close-modal" icon)
   closeModalIcon.addEventListener('click', () => closeModal());
-  // 2. With keyboard Escape key
-  closeModalIcon.addEventListener('keydown', (event) => {
+  // 2. With keyboard Escape key (on "contact-modal" element)
+  contactModal.addEventListener('keydown', (event) => {
     const { key } = event;
     if (key === 'Escape') {
       closeModal();
@@ -72,9 +73,9 @@ const getPhotographers = () => {
 
 const displayPhotographerPortfolio = (media) => {
   const photographerPortfolioElement = document.querySelector('.photographer__portfolio-images');
-  // We need to make sure that element is empty before adding any media to it
-  // otherwise, when rerendering (after sorting) media will stack up
-  // on top of previous gallery
+  /* We need to make sure that element is empty before adding any media to it
+   * otherwise, when rerendering (after sorting) media will stack up
+   * on top of previous gallery */
   photographerPortfolioElement.innerHTML = '';
 
   media.forEach((item) => {
