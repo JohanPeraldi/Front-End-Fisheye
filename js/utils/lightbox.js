@@ -141,14 +141,8 @@ mediaCommonAncestor.addEventListener('click', handleImageGalleryEvents);
 mediaCommonAncestor.addEventListener('keydown', handleImageGalleryEvents);
 
 // Activate close button
-// 1. With mouse click
+// 1. With mouse click on "lightbox__close" icon
 closeLightboxElement.addEventListener('click', closeLightbox);
-// 2. By pressing Enter
-closeLightboxElement.addEventListener('keydown', ($event) => {
-  if ($event.key === 'Enter') {
-    closeLightbox();
-  }
-});
 // Close on Escape keydown wherever the focus is set
 lightboxModal.addEventListener('keydown', ($event) => {
   const { key } = $event;
