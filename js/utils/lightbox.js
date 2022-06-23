@@ -58,7 +58,7 @@ const displayMedia = (mediaId) => {
 // Open lightbox
 const openLightbox = (mediaId) => {
   mainElement.style.display = 'none';
-  bodyElement.classList.add('no-scroll');
+  // bodyElement.classList.add('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'true');
   lightboxModal.style.display = 'flex';
   lightboxModal.setAttribute('aria-hidden', 'false');
@@ -70,7 +70,7 @@ const openLightbox = (mediaId) => {
 // Close lightbox
 const closeLightbox = () => {
   mainElement.style.display = 'block';
-  bodyElement.classList.remove('no-scroll');
+  // bodyElement.classList.remove('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'false');
   lightboxModal.style.display = 'none';
   lightboxModal.setAttribute('aria-hidden', 'true');
