@@ -73,6 +73,8 @@ const closeModal = () => {
   modal.style.display = 'none';
   modal.setAttribute('aria-hidden', 'true');
   handleClickableElements(deactivatedElements);
+  const contactButton = document.getElementById('contact-button');
+  contactButton.focus();
 };
 
 // Close modal on click on modal background
