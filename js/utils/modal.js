@@ -39,12 +39,10 @@ const handleClickableElements = (clickableElements) => {
 // Open modal
 const displayModal = () => {
   contentWrapperElement.setAttribute('aria-hidden', 'true');
-
   // Remove "clickable" class from all elements outside modal
   // Target all elements that have "clickable" class
   const clickableElements = document.querySelectorAll('.clickable');
   handleClickableElements(clickableElements);
-
   modal.style.display = 'block';
   modal.setAttribute('aria-hidden', 'false');
   document.addEventListener('keydown', (event) => {

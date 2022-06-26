@@ -7,6 +7,14 @@ const lightboxImageContainer = document.querySelector('.lightbox__image');
 const lightboxDescriptionContainer = document.querySelector('.lightbox__description');
 const previousImageIcon = document.querySelector('.lightbox__previous');
 const nextImageIcon = document.querySelector('.lightbox__next');
+// The list of all elements we want to allow to be focusable inside the lightbox
+const allowedFocusableElements = 'img#lightbox__close, a';
+// The lightbox focusable elements
+const lightboxFocusableElements = lightboxModal.querySelectorAll(allowedFocusableElements);
+// The first focusable element (the "previous" button)
+const firstLightboxFocusableElement = lightboxModal.querySelectorAll(allowedFocusableElements)[0];
+// The last focusable element
+const lastLightboxFocusableElement = lightboxFocusableElements[lightboxFocusableElements.length - 1];
 
 // The current photographer's media
 let mediaItems;
@@ -60,10 +68,27 @@ const displayMedia = (mediaId) => {
 const openLightbox = (mediaId) => {
   headerLogoElement.style.display = 'none';
   mainElement.style.display = 'none';
-  // bodyElement.classList.add('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'true');
   lightboxModal.style.display = 'flex';
   lightboxModal.setAttribute('aria-hidden', 'false');
+  closeLightboxElement.focus();
+  document.addEventListener('keydown', (event) => {
+    const isTabKeyPressed = event.key === 'Tab';
+    if (!isTabKeyPressed) {
+      return;
+    }
+    if (event.shiftKey) {
+      // If the Shift key is pressed for Shift-Tab combination
+      if (document.activeElement === firstLightboxFocusableElement) {
+        lastLightboxFocusableElement.focus();
+        event.preventDefault();
+      }
+    } else if (document.activeElement === lastLightboxFocusableElement) {
+      // If Tab key is pressed
+      firstLightboxFocusableElement.focus();
+      event.preventDefault();
+    }
+  });
   closeLightboxElement.focus();
 
   displayMedia(mediaId);
@@ -73,14 +98,12 @@ const openLightbox = (mediaId) => {
 const closeLightbox = () => {
   headerLogoElement.style.display = 'inline';
   mainElement.style.display = 'block';
-  // bodyElement.classList.remove('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'false');
   lightboxModal.style.display = 'none';
   lightboxModal.setAttribute('aria-hidden', 'true');
   // After closing the lightbox, the focus should be set on the Contact button
   const contactButton = document.getElementById('contact-button');
-  contactButton.focus(); // This causes a bug when we use the Enter key to close the lightbox:
-  // the contact form opens!
+  contactButton.focus();
 };
 
 // Handle all events originating in the media gallery
