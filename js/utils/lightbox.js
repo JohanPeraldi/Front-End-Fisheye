@@ -14,7 +14,9 @@ const lightboxFocusableElements = lightboxModal.querySelectorAll(allowedFocusabl
 // The first focusable element (the "previous" button)
 const firstLightboxFocusableElement = lightboxModal.querySelectorAll(allowedFocusableElements)[0];
 // The last focusable element
-const lastLightboxFocusableElement = lightboxFocusableElements[lightboxFocusableElements.length - 1];
+const lastLightboxFocusableElement = lightboxFocusableElements[
+  lightboxFocusableElements.length - 1
+];
 
 // The current photographer's media
 let mediaItems;
