@@ -1,4 +1,5 @@
 // DOM elements
+const headerLogoElement = document.getElementById('header-logo');
 const mainElement = document.getElementById('main');
 const lightboxModal = document.getElementById('lightbox-modal');
 const closeLightboxElement = document.getElementById('lightbox__close');
@@ -57,6 +58,7 @@ const displayMedia = (mediaId) => {
 
 // Open lightbox
 const openLightbox = (mediaId) => {
+  headerLogoElement.style.display = 'none';
   mainElement.style.display = 'none';
   // bodyElement.classList.add('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'true');
@@ -69,6 +71,7 @@ const openLightbox = (mediaId) => {
 
 // Close lightbox
 const closeLightbox = () => {
+  headerLogoElement.style.display = 'inline';
   mainElement.style.display = 'block';
   // bodyElement.classList.remove('no-scroll');
   contentWrapperElement.setAttribute('aria-hidden', 'false');
