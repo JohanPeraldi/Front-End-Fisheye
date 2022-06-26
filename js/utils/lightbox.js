@@ -127,8 +127,8 @@ const handleImageGalleryEvents = ($event) => {
       likeSpanElement.textContent = numberOfLikes.toString();
       totalLikesElement.textContent = totalPhotographerLikes.toString();
     }
-    $event.stopPropagation();
   }
+  $event.stopPropagation();
 };
 
 // We target the nearest common ancestor of all media elements
