@@ -304,6 +304,7 @@ form input:focus, form textarea:focus {
   border-radius: 5px;
 }
 .lightbox__image img, .lightbox__image video {
+  width: 100%;
   border-radius: 5px;
 }
 .lightbox__next, .lightbox__previous {
