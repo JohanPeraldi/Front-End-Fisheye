@@ -35,8 +35,8 @@
       border-radius: $border-radius;
 
       &:focus {
-        outline: 2px solid black;
-        background-color: black;
+        @include element-focus-white;
+        background-color: $color-secondary-light;
       }
     }
 

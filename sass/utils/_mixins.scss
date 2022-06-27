@@ -9,13 +9,11 @@
   outline: 4px dashed $color-primary;
 }
 
-@mixin box-shadow-icon-focus {
-  outline: 2px solid $color-primary;
-  box-shadow: 0 0 16px 12px $color-primary;
+@mixin element-focus-white {
+  outline: 4px dashed white;
 }
 
 @mixin button-focus {
-  @include element-focus;
   background-color: $color-secondary-light;
   color: black;
 }
