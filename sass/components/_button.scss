@@ -22,7 +22,6 @@
 
   &--outline-white {
     &:focus {
-      @include button-focus;
       @include element-focus-white;
     }
   }

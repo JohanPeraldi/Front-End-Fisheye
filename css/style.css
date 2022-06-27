@@ -56,8 +56,6 @@ h1 {
   outline: 4px dashed #901c1c;
 }
 .contact-button--outline-white:focus {
-  background-color: #db8876;
-  color: black;
   outline: 4px dashed white;
 }
 
