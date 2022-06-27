@@ -51,7 +51,7 @@ h1 {
   color: black;
 }
 .contact-button:focus {
-  outline: 2px solid black;
+  outline: 4px dashed #901c1c;
   background-color: #db8876;
   color: black;
 }
@@ -307,8 +307,7 @@ form input:focus, form textarea:focus {
   cursor: pointer;
 }
 .lightbox__next:focus, .lightbox__previous:focus {
-  outline: 2px solid #901c1c;
-  box-shadow: 0 0 16px 12px #901c1c;
+  outline: 4px dashed #901c1c;
 }
 .lightbox__next img, .lightbox__previous img {
   height: 62px;
@@ -319,8 +318,7 @@ form input:focus, form textarea:focus {
   cursor: pointer;
 }
 .lightbox__close:focus {
-  outline: 2px solid #901c1c;
-  box-shadow: 0 0 16px 12px #901c1c;
+  outline: 4px dashed #901c1c;
 }
 .lightbox__description {
   align-self: flex-start;
@@ -412,13 +410,18 @@ form input:focus, form textarea:focus {
   align-items: center;
   height: 90px;
 }
+.header__main > a {
+  margin-left: 100px;
+}
+.header__main > a:focus {
+  outline: 4px dashed #901c1c;
+}
 .header__main h1 {
   font-size: 3.6rem;
 }
 
 .logo {
   height: 50px;
-  margin-left: 100px;
 }
 
 .photographer_section {
@@ -440,6 +443,9 @@ form input:focus, form textarea:focus {
   justify-content: center;
   align-items: center;
   text-decoration: none;
+}
+.photographer_section article a:focus {
+  outline: 4px dashed #901c1c;
 }
 .photographer_section article h2 {
   color: #d3573c;
@@ -533,8 +539,7 @@ form input:focus, form textarea:focus {
   border-radius: 5px;
 }
 .image:focus {
-  outline: 2px solid #901c1c;
-  box-shadow: 0 0 16px 12px #901c1c;
+  outline: 4px dashed #901c1c;
 }
 .image img {
   object-fit: cover;
@@ -564,6 +569,9 @@ form input:focus, form textarea:focus {
   margin-left: 1rem;
   width: 1.1em;
   cursor: pointer;
+}
+.image-description img:focus {
+  outline: 4px dashed #901c1c;
 }
 
 @media screen and (max-width: 1280px) {

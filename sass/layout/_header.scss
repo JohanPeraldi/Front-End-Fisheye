@@ -7,6 +7,14 @@
     align-items: center;
     height: 90px;
 
+    & > a {
+      margin-left: 100px;
+
+      &:focus {
+        @include element-focus;
+      }
+    }
+
     & h1 {
       font-size: 3.6rem;
     }
@@ -15,5 +23,4 @@
 
 .logo {
   height: 50px;
-  margin-left: 100px;
 }

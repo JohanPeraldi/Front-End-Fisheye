@@ -50,7 +50,7 @@
     cursor: pointer;
 
     &:focus {
-      @include box-shadow-icon-focus;
+      @include element-focus;
     }
 
     & img {
@@ -64,7 +64,7 @@
     cursor: pointer;
 
     &:focus {
-      @include box-shadow-icon-focus;
+      @include element-focus;
     }
   }
 

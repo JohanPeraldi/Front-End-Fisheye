@@ -11,6 +11,10 @@
     & a {
       @include flex-col-centre;
       text-decoration: none;
+
+      &:focus {
+        @include element-focus;
+      }
     }
 
     & h2 {
